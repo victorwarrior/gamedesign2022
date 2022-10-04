@@ -7,77 +7,69 @@ public class PlayerSmallController : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public float speed = 10;
-    public float maxSpeed = 10;
+    public float speed     = 10; 
+    public float maxSpeed  = 10;
     public float jumpForce = 10;
-    bool jump = false;
-    public bool onGround;
+    public bool  jump      = false;
+    public bool  onGround;
 
-    public string up = "w";
+    public string keyLeft  = "a";
+    public string keyRight = "d";
+    public string keyJump  = "w";
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("w") && onGround)
-        {
+    void Update() {
+        if (Input.GetKeyDown(keyJump) && onGround) {
             jump = true;
         }
     }
 
-    private void FixedUpdate()
-    {
-        //float direction = Input.GetAxis("Horizontal"); // [-1, 1] left/right
+    private void FixedUpdate() {
         int direction = 0;
-        if (Input.GetKey("a")) direction = -1;
-        if (Input.GetKey("d")) direction = 1;
-        if (Input.GetKey("a") && Input.GetKey("d")) direction = -1;
+        if (Input.GetKey(keyLeft))  direction = -1;
+        if (Input.GetKey(keyRight)) direction = 1;
+        if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = -1;
 
         rb.AddForce(Vector2.right * direction * speed);
 
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-        }
-        if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        }
+        if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+        if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
 
-        if (jump)
-        {
+        if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jump = false;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("DeathTrigger"))
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("DeathTrigger")) {
             SceneManager.LoadScene("MainScene");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Platform")) {
             onGround = true;
+        }
+
+        if (collision.gameObject.CompareTag("Player")) {
+            onGround = true; // TODO: dette gør vel at man kan hoppe hvis man rør siden af den anden spiller i luften. -Victor
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Platform") == true) {
             onGround = false;
         }
+        if (collision.gameObject.CompareTag("Player") == true && collision.gameObject.CompareTag("Platform") == false) {
+            onGround = false; // mulig bug. -Victor
+        }
+
     }
 
 }
