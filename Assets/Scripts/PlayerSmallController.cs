@@ -46,30 +46,26 @@ public class PlayerSmallController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("DeathTrigger")) {
-            SceneManager.LoadScene("MainScene");
-        }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
+
+        if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Platform")) {
-            onGround = true;
-        }
-
-        if (collision.gameObject.CompareTag("Player")) {
-            onGround = true; // TODO: dette gør vel at man kan hoppe hvis man rør siden af den anden spiller i luften. -Victor
-        }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Platform") == true) {
-            onGround = false;
-        }
-        if (collision.gameObject.CompareTag("Player") == true && collision.gameObject.CompareTag("Platform") == false) {
-            onGround = false; // mulig bug. -Victor
-        }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform")) onGround = true;
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform") == true) onGround = false;
     }
 
 }

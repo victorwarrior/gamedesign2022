@@ -30,14 +30,15 @@ public class PlayerBigController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        // input 
         int direction = 0;
-        if (Input.GetKey(keyLeft))  direction = -1;
+        if (Input.GetKey(keyLeft)) direction = -1;
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = -1;
 
         rb.AddForce(Vector2.right * direction * speed);
 
-        if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+        if (rb.velocity.x > maxSpeed) rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
         if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
 
         if (jump) {
@@ -48,30 +49,24 @@ public class PlayerBigController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("DeathTrigger")) {
-            SceneManager.LoadScene("MainScene");
-        }
+        if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
+
+        if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform")) {
-            onGround = true;
-        }
-
-        if (collision.gameObject.CompareTag("Player")) {
-            onGround = true; // TODO: dette gør vel at man kan hoppe hvis man rør siden af den anden spiller i luften. -Victor
-        }
+        if (collision.gameObject.CompareTag("Platform")) onGround = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform")) {
-            onGround = false;
-        }
-        if (collision.gameObject.CompareTag("Player")) {
-            onGround = false; // mulig bug. -Victor
-        }
+        if (collision.gameObject.CompareTag("Platform")) onGround = false;
     }
 
 }
