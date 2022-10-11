@@ -67,20 +67,32 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
 
         if (keyLeft == "left")
-            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
-        else if (keyLeft == "a") {
+        {
             if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true;
-        } else {
+            
+
+        }
+        else if (keyLeft == "a")
+        {
+            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
+        }
+        else
+        {
             Debug.Log("Bug.");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (keyLeft == "left")
-            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
-        else if (keyLeft == "a") {
+        {
             if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
-        } else {
+        }
+        else if (keyLeft == "a")
+        {
+            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
+        }
+        else
+        {
             Debug.Log("Bug: players are not called PlayerSmall & PlayerBig.");
         }
 
