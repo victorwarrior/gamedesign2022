@@ -243,6 +243,11 @@ MonoBehaviour:
   deceleration: 1.32
   jump: 0
   onGround: 0
+--- !u!50 &134924114 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8878929594795044384, guid: f5efa0a952eeb564eb445068bec08438, type: 3}
+  m_PrefabInstance: {fileID: 336933324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &213964212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,3 +1271,22 @@ MonoBehaviour:
   deceleration: 1.32
   jump: 0
   onGround: 0
+--- !u!232 &8878929596319351936
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878929596319351926}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 134924114}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 6
+  m_MaxDistanceOnly: 1
