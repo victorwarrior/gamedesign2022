@@ -7,16 +7,19 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public string keyLeft  = "left"; // @NOTE: is currently used to distinquise between Big and Small -Victor
-    public string keyRight = "right";
-    public string keyJump  = "up";
+    // constants
+    public string playerIdentity;
+    public GameObject otherPlayer;
 
-    public float speed     = 10;
-    public float maxSpeed  = 10;
-    public float jumpForce = 10;
-    public float deceleration = 1.32f; // @NOTE: don't set below 1 -Victor
+    public string keyLeft, keyRight, keyJump;
 
-    public bool  jump      = false;
+    public float speed;
+    public float maxSpeed;
+    public float jumpForce;
+    public float deceleration; // @NOTE: 1.32 seems good. don't set below 1 -Victor
+
+    // other variables
+    public bool  jump = false;
     public bool  onGround;
 
     // debug variables:
@@ -24,14 +27,14 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        playerIdentity = playerIdentity.ToLower();
     }
 
 
     void Update() {
+        // jumping
         if (Input.GetKeyDown(keyJump) && onGround) {
             jump = true;
         }
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (direction != 0) {
             // movement
             rb.AddForce(Vector2.right * direction * speed);
-            if (rb.velocity.x > maxSpeed) rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+            if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
         } else {
             // deceleration 
@@ -60,43 +63,34 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
 
-        //xVelocityCheck = rb.velocity.x; // @DEBUG
+        //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
 
-        if (keyLeft == "left")
-        {
-            if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true;
-            
-
-        }
-        else if (keyLeft == "a")
-        {
+        // "head" collision to enable jumping
+        if (playerIdentity == "big") {
+            if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true; 
+        } else if (playerIdentity == "small") {
             if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
-        }
-        else
-        {
-            Debug.Log("Bug.");
+        } else {
+            Debug.Log("Wrong playerIdentity value on " + gameObject.name);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (keyLeft == "left")
-        {
-            if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
-        }
-        else if (keyLeft == "a")
-        {
-            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
-        }
-        else
-        {
-            Debug.Log("Bug: players are not called PlayerSmall & PlayerBig.");
-        }
 
-
+        // "head" collision to enable jumping
+        if (transform.position.y > otherPlayer.transform.position.y) {
+            if (playerIdentity == "big") {
+                if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
+            } else if (playerIdentity == "small") {
+                if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
+            } else {
+                Debug.Log("Wrong playerIdentity value on " + gameObject.name);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

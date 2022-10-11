@@ -232,9 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fa9b076a5c0c45947c5a4691028a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyLeft: a
-  keyRight: d
-  keyJump: w
+  playerIdentity: small
+  otherPlayer: {fileID: 8878929596319351926}
+  keyLeft: left
+  keyRight: right
+  keyJump: up
   speed: 56
   maxSpeed: 5.4
   jumpForce: 13.2
@@ -268,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 213964212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 9.5, z: -0.5}
-  m_LocalScale: {x: 13, y: 1, z: 1}
+  m_LocalScale: {x: 19, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8878929596319351931}
@@ -745,7 +747,7 @@ Transform:
   m_GameObject: {fileID: 1182777685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 9.5, z: -0.5}
-  m_LocalScale: {x: 13, y: 1, z: 1}
+  m_LocalScale: {x: 19, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 134924109}
@@ -1253,9 +1255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fa9b076a5c0c45947c5a4691028a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyLeft: left
-  keyRight: right
-  keyJump: up
+  playerIdentity: big
+  otherPlayer: {fileID: 134924106}
+  keyLeft: a
+  keyRight: d
+  keyJump: w
   speed: 56
   maxSpeed: 4.2
   jumpForce: 20
