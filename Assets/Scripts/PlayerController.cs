@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public string playerIdentity;
     public GameObject otherPlayer;
 
-    public string keyLeft, keyRight, keyJump;
+    public string keyLeft, keyRight, keyJump, keyRestart;
 
     public float speed;
     public float maxSpeed;
@@ -24,12 +24,15 @@ public class PlayerController : MonoBehaviour
 
     // debug variables:
     //public float xVelocityCheck = 0f;
+    LineRenderer ropeLineRenderer; //@NOTE: remove lineRenderer components on objects when removing this -Victor
 
 
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
+
+        ropeLineRenderer = GetComponent<LineRenderer>();
     }
 
 
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(keyJump) && onGround) {
             jump = true;
         }
+
+        if (Input.GetKeyDown(keyRestart)) SceneManager.LoadScene("MainScene");
     }
 
     private void FixedUpdate() {
@@ -63,7 +68,11 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
 
+        // debug
         //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
+        ropeLineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        ropeLineRenderer.SetPosition(1, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y, otherPlayer.transform.position.z));
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
