@@ -56,9 +56,19 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.right * direction * speed);
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        } else {
-            // deceleration 
-            rb.velocity = new Vector2(rb.velocity.x/deceleration, rb.velocity.y);
+
+        }
+        else if(direction == 0 && onGround){
+
+            // deceleration
+            rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
+
+        }
+        else //direction == 0 && !onGrund also means that jumping without direction will induce drag - Vic
+        {
+            //decelerate swinging motion
+            rb.drag = 0.25f;
+            
         }
 
 
