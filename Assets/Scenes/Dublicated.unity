@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 189360447}
   - component: {fileID: 189360446}
   m_Layer: 0
-  m_Name: DragDown (1)
+  m_Name: DragDownLeft
   m_TagString: DragdownLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 782046095}
   - component: {fileID: 782046094}
   m_Layer: 0
-  m_Name: DragDown
+  m_Name: DragDownRight
   m_TagString: DragdownRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
