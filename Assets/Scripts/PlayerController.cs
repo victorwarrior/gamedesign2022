@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
 
+    //add force to small player
+    public Rigidbody2D otherRb;
+    
+
     // constants
     public string playerIdentity;
     public GameObject otherPlayer;
@@ -109,14 +113,20 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Wrong playerIdentity value on " + gameObject.name);
         }
 
+        
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (playerIdentity == "big")
         {
-            if (collision.gameObject.CompareTag("Dragdown"))
+            
+            if (collision.gameObject.CompareTag("Dragdown")&& otherPlayer.GetComponent<PlayerController>().onGround == true)
             {
-                rb.AddForce(Vector2.right * 50, ForceMode2D.Impulse);
+                otherRb.AddForce(Vector2.right * 0.5f, ForceMode2D.Impulse);
             }
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
