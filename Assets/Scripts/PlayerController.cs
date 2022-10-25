@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // other variables
     public bool  jump = false;
     public bool  onGround;
+    public bool hasKey = false;
 
     // debug variables:
     //public float xVelocityCheck = 0f;
@@ -118,6 +119,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Platform")) onGround = false;
+    }
+
+    public void keyTrue()
+    {
+        hasKey = true;
     }
 
 }
