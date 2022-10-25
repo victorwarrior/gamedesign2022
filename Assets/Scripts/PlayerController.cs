@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float jumpForce;
+
     public float deceleration; // @NOTE: 1.32 seems good. don't set below 1 -Victor
 
     // other variables
@@ -107,6 +108,15 @@ public class PlayerController : MonoBehaviour
         } else {
             Debug.Log("Wrong playerIdentity value on " + gameObject.name);
         }
+
+        if (playerIdentity == "big")
+        {
+            if (collision.gameObject.CompareTag("Dragdown"))
+            {
+                rb.AddForce(Vector2.right * 50, ForceMode2D.Impulse);
+            }
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) {

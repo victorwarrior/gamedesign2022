@@ -9,6 +9,7 @@ TagManager:
   - PlayerSmallHead
   - PlayerBigHead
   - edge
+  - Dragdown
   layers:
   - Default
   - TransparentFX
