@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float jumpForce;
 
+    public float dragAmount;
+
     public float deceleration; // @NOTE: 1.32 seems good. don't set below 1 -Victor
 
     // other variables
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
             
             if (collision.gameObject.CompareTag("DragdownRight")&& otherPlayer.GetComponent<PlayerController>().onGround == true)
             {
-                otherRb.AddForce(Vector2.right * 0.5f, ForceMode2D.Impulse);
+                otherRb.AddForce(Vector2.right * dragAmount, ForceMode2D.Impulse);
             }
         }
 
@@ -133,7 +135,7 @@ public class PlayerController : MonoBehaviour
 
             if (collision.gameObject.CompareTag("DragdownLeft") && otherPlayer.GetComponent<PlayerController>().onGround == true)
             {
-                otherRb.AddForce(Vector2.left * 0.5f, ForceMode2D.Impulse);
+                otherRb.AddForce(Vector2.left * dragAmount, ForceMode2D.Impulse);
             }
         }
     }
