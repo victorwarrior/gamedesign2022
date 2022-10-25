@@ -122,9 +122,18 @@ public class PlayerController : MonoBehaviour
         if (playerIdentity == "big")
         {
             
-            if (collision.gameObject.CompareTag("Dragdown")&& otherPlayer.GetComponent<PlayerController>().onGround == true)
+            if (collision.gameObject.CompareTag("DragdownRight")&& otherPlayer.GetComponent<PlayerController>().onGround == true)
             {
                 otherRb.AddForce(Vector2.right * 0.5f, ForceMode2D.Impulse);
+            }
+        }
+
+        if (playerIdentity == "big")
+        {
+
+            if (collision.gameObject.CompareTag("DragdownLeft") && otherPlayer.GetComponent<PlayerController>().onGround == true)
+            {
+                otherRb.AddForce(Vector2.left * 0.5f, ForceMode2D.Impulse);
             }
         }
     }
