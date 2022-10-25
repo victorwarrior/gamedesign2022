@@ -242,7 +242,7 @@ MonoBehaviour:
   speed: 56
   maxSpeed: 5.4
   jumpForce: 28
-  dragAmount: 2
+  dragAmount: 1.2
   deceleration: 1.32
   jump: 0
   onGround: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   speed: 70
   maxSpeed: 4.2
   jumpForce: 75
-  dragAmount: 2
+  dragAmount: 1.2
   deceleration: 1.32
   jump: 0
   onGround: 0
