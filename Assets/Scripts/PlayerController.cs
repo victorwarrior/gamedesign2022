@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     // debug variables:
     //public float xVelocityCheck = 0f;
-    LineRenderer ropeLineRenderer; //@NOTE: remove lineRenderer components on objects when removing this -Victor
+    //LineRenderer ropeLineRenderer; //@NOTE: remove lineRenderer components on objects when removing this -Victor
 
 
 
@@ -33,7 +34,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
 
-        ropeLineRenderer = GetComponent<LineRenderer>();
+        //ropeLineRenderer = GetComponent<LineRenderer>();
+
+        
     }
 
 
@@ -44,10 +47,14 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(keyRestart)) SceneManager.LoadScene("MainScene");
+
+
     }
 
     private void FixedUpdate() {
+
         int direction = 0;
+
         if (Input.GetKey(keyLeft)) direction = -1;
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
@@ -81,12 +88,15 @@ public class PlayerController : MonoBehaviour
 
         // debug
         //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
-        ropeLineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, transform.position.z));
-        ropeLineRenderer.SetPosition(1, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y, otherPlayer.transform.position.z));
+        //ropeLineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        //ropeLineRenderer.SetPosition(1, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y, otherPlayer.transform.position.z));
+
 
     }
+    
 
     private void OnTriggerEnter2D(Collider2D collision) {
+
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
 
         // "head" collision to enable jumping
