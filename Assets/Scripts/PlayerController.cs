@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     public float dragAmount;
+    public float dragAmountUp;
 
     public float deceleration; // @NOTE: 1.32 seems good. don't set below 1 -Victor
 
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool  jump = false;
     public bool  onGround;
     public bool hasKey = false;
+    public int direction;
 
     // debug variables:
     //public float xVelocityCheck = 0f;
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() {
 
-        int direction = 0;
+        direction = 0;
 
         if (Input.GetKey(keyLeft)) direction = -1;
         if (Input.GetKey(keyRight)) direction = 1;
@@ -136,6 +138,16 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.CompareTag("DragdownLeft") && otherPlayer.GetComponent<PlayerController>().onGround == true)
             {
                 otherRb.AddForce(Vector2.left * dragAmount, ForceMode2D.Impulse);
+            }
+        }
+
+        if (playerIdentity == "small")
+        {
+            if (collision.gameObject.CompareTag("DragUp") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
+                if ((transform.position.x > otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == -1) || (transform.position.x < otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == 1))
+                {
+                    rb.AddForce(Vector2.up * dragAmountUp, ForceMode2D.Force);
+                }
             }
         }
     }
