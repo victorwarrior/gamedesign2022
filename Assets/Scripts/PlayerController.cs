@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
 
     //add force to small player
-    public Rigidbody2D otherRb;
+    public Rigidbody2D otherRb; // misleading comment, force is not added here. -Victor
     
 
     // constants
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
-
+        // try adding otherRb here instead? -Victor
         //ropeLineRenderer = GetComponent<LineRenderer>();
 
         
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         else //direction == 0 && !onGrund also means that jumping without direction will induce drag - Vic
         {
             //decelerate swinging motion
-            rb.drag = 0.25f;
+            rb.drag = 0.25f; // @PROBLEM: makes jumping weird, should probably only apply when ~dist_between_players = max. also could use drag instead of deceleration? -Victor 
             
         }
 
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
 
         // "head" collision to enable jumping
-        if (playerIdentity == "big") {
+        if (playerIdentity == "big") { // can make smaller -Victor
             if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true; 
         } else if (playerIdentity == "small") {
             if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) {
 
         // "head" collision to enable jumping
-        if (transform.position.y > otherPlayer.transform.position.y) {
+        if (transform.position.y > otherPlayer.transform.position.y) { // @NOTE: if theres trouble maybe change to > y + height/2. -Victor
             if (playerIdentity == "big") {
                 if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
             } else if (playerIdentity == "small") {
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     public void keyTrue()
     {
-        hasKey = true;
+        hasKey = true; // i don't this method is needed. -Victor
     }
 
 }
