@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (playerIdentity == "small")
+        if (playerIdentity == "small" && onGround == false)  
         {
             if (collision.gameObject.CompareTag("DragUp") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
                 if ((transform.position.x > otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == -1) || (transform.position.x < otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == 1))
