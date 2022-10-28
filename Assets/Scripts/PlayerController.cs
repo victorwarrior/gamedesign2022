@@ -6,12 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rb;
-
-    //add force to small player
-    public Rigidbody2D otherRb;
     
-
     // constants
     public string playerIdentity;
     public GameObject otherPlayer;
@@ -25,27 +20,26 @@ public class PlayerController : MonoBehaviour
     public float dragAmount;
     public float dragAmountUp;
 
-    public float deceleration; // @NOTE: 1.32 seems good. don't set below 1 -Victor
+    public float deceleration; // @NOTE: 1.32 seems good. don't set below 1.0 -Victor
 
     // other variables
-    public bool  jump = false;
-    public bool  onGround;
+    Rigidbody2D rb;
+    Rigidbody2D otherRb;
+    public bool jump = false;
+    public bool onGround;
     public bool hasKey = false;
     public int direction;
 
-    // debug variables:
+    // debug variables
     //public float xVelocityCheck = 0f;
-    //LineRenderer ropeLineRenderer; //@NOTE: remove lineRenderer components on objects when removing this -Victor
 
 
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        otherRb = otherPlayer.GetComponent<Rigidbody2D>();
+
         playerIdentity = playerIdentity.ToLower();
-
-        //ropeLineRenderer = GetComponent<LineRenderer>();
-
-        
     }
 
 
@@ -55,39 +49,33 @@ public class PlayerController : MonoBehaviour
             jump = true;
         }
 
-        if (Input.GetKeyDown(keyRestart)) SceneManager.LoadScene("MainScene");
-
+        // restarting level
+        if (Input.GetKeyDown(keyRestart)) {
+            SceneManager.LoadScene("MainScene");
+        }
 
     }
 
     private void FixedUpdate() {
-
         direction = 0;
-
         if (Input.GetKey(keyLeft)) direction = -1;
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
+
+        rb.drag = 0.0f;
 
         if (direction != 0) {
             // movement
             rb.AddForce(Vector2.right * direction * speed);
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-
-        }
-        else if(direction == 0 && onGround){
-
+        } else if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) <= 8.9) { // check if Vector2.Distance can be used instead -Victor
             // deceleration
             rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
-
-        }
-        else //direction == 0 && !onGrund also means that jumping without direction will induce drag - Vic
-        {
-            //decelerate swinging motion
+        } else {
+            // drag when swinging
             rb.drag = 0.25f;
-            
         }
-
 
         // jump
         if (jump) {
@@ -97,73 +85,69 @@ public class PlayerController : MonoBehaviour
 
         // debug
         //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
-        //ropeLineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, transform.position.z));
-        //ropeLineRenderer.SetPosition(1, new Vector3(otherPlayer.transform.position.x, otherPlayer.transform.position.y, otherPlayer.transform.position.z));
-
 
     }
     
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
+        // death trigger
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
 
-        // "head" collision to enable jumping
-        if (playerIdentity == "big") {
-            if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true; 
-        } else if (playerIdentity == "small") {
-            if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
-        } else {
-            Debug.Log("Wrong playerIdentity value on " + gameObject.name);
-        }
+        // player head collision
+        switch (playerIdentity) {
+            case "big":
+                if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true;
+                break;
 
-        
+            case "small":
+                if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
+                break;
+                
+        }  
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (playerIdentity == "big")
-        {
-            
-            if (collision.gameObject.CompareTag("DragdownRight")&& otherPlayer.GetComponent<PlayerController>().onGround == true)
-            {
+    private void OnTriggerStay2D(Collider2D collision){
+
+        if (playerIdentity == "big") {
+            if (collision.gameObject.CompareTag("DragdownRight") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
                 otherRb.AddForce(Vector2.right * dragAmount, ForceMode2D.Impulse);
             }
         }
 
-        if (playerIdentity == "big")
-        {
-
-            if (collision.gameObject.CompareTag("DragdownLeft") && otherPlayer.GetComponent<PlayerController>().onGround == true)
-            {
+        if (playerIdentity == "big") {
+            if (collision.gameObject.CompareTag("DragdownLeft") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
                 otherRb.AddForce(Vector2.left * dragAmount, ForceMode2D.Impulse);
             }
         }
 
-        if (playerIdentity == "small" && onGround == false)  
-        {
+        if (playerIdentity == "small" && onGround == false) {
             if (collision.gameObject.CompareTag("DragUp") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
-                if ((transform.position.x > otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == -1) || (transform.position.x < otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == 1))
-                {
+                if ((transform.position.x > otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == -1) || (transform.position.x < otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == 1)) {
                     rb.AddForce(Vector2.up * dragAmountUp, ForceMode2D.Force);
                 }
             }
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
 
-        // "head" collision to enable jumping
+        // player head collision
         if (transform.position.y > otherPlayer.transform.position.y) {
-            if (playerIdentity == "big") {
-                if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
-            } else if (playerIdentity == "small") {
-                if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
-            } else {
-                Debug.Log("Wrong playerIdentity value on " + gameObject.name);
+            switch (playerIdentity) {
+                case "big":
+                    if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
+                    break;
+
+                case "small":
+                    if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
+                    break;
+
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
