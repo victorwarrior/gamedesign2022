@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
 
-        rb.drag = 0.0f;
+        rb.drag = 0.25f;
 
         if (direction != 0) {
             // movement
