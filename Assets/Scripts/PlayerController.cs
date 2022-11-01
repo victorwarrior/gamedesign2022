@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         // restarting level
         if (Input.GetKeyDown(keyRestart)) {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.GetActiveScene();
         }
 
     }
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
         // death trigger
-        if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene("MainScene");
+        if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.GetActiveScene();
 
         // player head collision
         switch (playerIdentity) {
