@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public string playerIdentity;
     public GameObject otherPlayer;
 
+
     public string keyLeft, keyRight, keyJump, keyRestart;
 
     public float speed;
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public bool onGround;
     public bool hasKey = false;
     public int direction;
+    public int health;
+    public int healthLossAmount = 10;
 
     // debug variables
     //public float xVelocityCheck = 0f;
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
 
         playerIdentity = playerIdentity.ToLower();
+
+        health = 100;
     }
 
 
@@ -163,6 +168,20 @@ public class PlayerController : MonoBehaviour
     public void keyTrue()
     {
         hasKey = true;
+    }
+
+    public void LoseHealth()
+    {
+        health = health - healthLossAmount;
+
+        rb.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
+
+
+        if (health <= 0)
+        {
+            Debug.Log("du er død");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 }

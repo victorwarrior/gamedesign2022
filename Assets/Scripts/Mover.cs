@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     public bool updateOn = false;
     public bool opOgNed = false;
