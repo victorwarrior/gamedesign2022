@@ -187,6 +187,8 @@ MonoBehaviour:
   onGround: 0
   hasKey: 0
   direction: 0
+  health: 0
+  healthLossAmount: 10
 --- !u!50 &134924114 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8878929594795044384, guid: f5efa0a952eeb564eb445068bec08438, type: 3}
@@ -328,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768917160403662443, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 768917160403662443, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -938,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135501, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -960,7 +966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135502, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135502, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1112,7 +1118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965167386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 6, z: 0}
+  m_LocalPosition: {x: -16, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1251,11 +1257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768917160403662443, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 768917160403662443, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 768917160403662443, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1545,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135501, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_Mass
@@ -1569,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135502, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135502, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1763,6 +1769,8 @@ MonoBehaviour:
   onGround: 0
   hasKey: 0
   direction: 0
+  health: 0
+  healthLossAmount: 10
 --- !u!232 &8878929596319351936
 DistanceJoint2D:
   m_ObjectHideFlags: 0
