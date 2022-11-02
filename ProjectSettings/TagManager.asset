@@ -13,6 +13,7 @@ TagManager:
   - DragdownLeft
   - DragUp
   - Enemy
+  - Stone
   layers:
   - Default
   - TransparentFX
