@@ -99,18 +99,6 @@ public class PlayerController : MonoBehaviour
         // death trigger
         if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        // player head collision
-        switch (playerIdentity) {
-            case "big":
-                if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = true;
-                break;
-
-            case "small":
-                if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = true;
-                break;
-                
-        }  
-
     }
 
     private void OnTriggerStay2D(Collider2D collision){
@@ -137,33 +125,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
 
-        // player head collision
-        if (transform.position.y > otherPlayer.transform.position.y) {
-            switch (playerIdentity) {
-                case "big":
-                    if (collision.gameObject.CompareTag("PlayerSmallHead")) onGround = false;
-                    break;
-
-                case "small":
-                    if (collision.gameObject.CompareTag("PlayerBigHead")) onGround = false;
-                    break;
-
-            }
-        }
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Platform")) onGround = true;
-
-    }
-
-
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Platform")) onGround = false;
-    }
+    
 
     public void keyTrue()
     {
@@ -179,9 +142,21 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("du er død");
+            Debug.Log("du er dï¿½d");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    public void OnGroundTrue()
+    {
+        onGround = true;
+    }
+    
+    public void OnGroundFalse()
+    {
+        onGround = false;
+    }
+
+
 
 }
