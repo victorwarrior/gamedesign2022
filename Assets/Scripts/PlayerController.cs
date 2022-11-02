@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
     {
         health = health - healthLossAmount;
 
-        rb.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 50, ForceMode2D.Impulse);
 
 
         if (health <= 0)
