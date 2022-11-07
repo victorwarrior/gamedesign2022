@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     // debug variables
     //public float xVelocityCheck = 0f;
+    public int testInteger = 0;
 
 
 
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision){
+    private void OnTriggerStay2D(Collider2D collision) {
 
         if (playerIdentity == "big") {
             if (collision.gameObject.CompareTag("DragdownRight") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
@@ -142,21 +143,10 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("du er d�d");
+            Debug.Log("you are dead.");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-
-    public void OnGroundTrue()
-    {
-        onGround = true;
-    }
-    
-    public void OnGroundFalse()
-    {
-        onGround = false;
-    }
-
 
 
 }
