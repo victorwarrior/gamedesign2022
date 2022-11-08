@@ -98,7 +98,11 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
         // death trigger
-        if (collision.gameObject.CompareTag("DeathTrigger")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.gameObject.CompareTag("DeathTrigger"))
+        {
+            print("deathTrigger");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
     }
 
