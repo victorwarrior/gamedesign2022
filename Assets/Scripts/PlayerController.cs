@@ -126,8 +126,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    
+    // pushing stone
+    /*private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (playerIdentity == "big" && collision.gameObject.CompareTag("Stone"))
+        {
+            if ((collision.transform.position.x > gameObject.transform.position.x) && direction == 1)
+            {
+                speed = 350;
+            }
+            if ((collision.transform.position.x < gameObject.transform.position.x) && direction == -1)
+            {
+                speed = 350;
+            }
+        }
+    }*/
 
     public void keyTrue()
     {
