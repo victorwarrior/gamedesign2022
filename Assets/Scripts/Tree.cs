@@ -5,22 +5,24 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
 
-  
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.GetComponent<PlayerController>().hasKey == false)
+            if (collision.gameObject.GetComponent<PlayerController>().hasKey == false)
             {
                 Debug.Log("ingen key");
             }
 
-            if (other.gameObject.GetComponent<PlayerController>().hasKey == true)
+            if (collision.gameObject.GetComponent<PlayerController>().hasKey == true)
             {
                 gameObject.SetActive(false);
+                collision.gameObject.GetComponent<PlayerController>().hasKey = false;
             }
 
         }
 
     }
 }
+        
