@@ -677,13 +677,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7044978657321135488, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99a9de2742f744eeaad0f5fd21c32539, type: 2}
     - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_Name
       value: Stone (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_TagString
@@ -1078,6 +1082,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7044978657321135488, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99a9de2742f744eeaad0f5fd21c32539, type: 2}
     - target: {fileID: 7044978657321135490, guid: f3419e2bc5aac4025800b67b1e556e40, type: 3}
       propertyPath: m_Name
       value: Stone
