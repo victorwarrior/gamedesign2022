@@ -96,7 +96,7 @@ DistanceJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 262262303820535820, guid: af0730ec330684650879666ec0cda496, type: 3}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
@@ -217,12 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIdentity: big
-  otherPlayer: {fileID: 262262303820535828, guid: af0730ec330684650879666ec0cda496, type: 3}
+  otherPlayer: {fileID: 0}
   keyLeft: a
   keyRight: d
   keyJump: w
   keyRestart: r
-  speed: 70
+  speed: 350
   maxSpeed: 4.2
   jumpForce: 75
   dragAmount: 1.2
@@ -234,6 +234,7 @@ MonoBehaviour:
   direction: 0
   health: 0
   healthLossAmount: 10
+  testInteger: 0
 --- !u!114 &3861747975510371662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a7dd7f5aa4047b1a51d2c1e6ab5d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherPlayer: {fileID: 262262303820535828, guid: af0730ec330684650879666ec0cda496, type: 3}
+  otherPlayer: {fileID: 0}
 --- !u!1 &5670001412544588709
 GameObject:
   m_ObjectHideFlags: 0
