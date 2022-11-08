@@ -18,12 +18,14 @@ public class Feet : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player")) gameObject.GetComponentInParent<PlayerController>().onGround = true;
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stone"))
+            gameObject.GetComponentInParent<PlayerController>().onGround = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player")) gameObject.GetComponentInParent<PlayerController>().onGround = false;
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stone"))
+            gameObject.GetComponentInParent<PlayerController>().onGround = false;
         
     }
 
