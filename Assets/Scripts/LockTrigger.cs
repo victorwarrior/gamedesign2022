@@ -20,13 +20,19 @@ public class LockTrigger : MonoBehaviour
             //        gameObject.SetActive(false);
             //    }
             //}
+            //foreach har problemer med List<T>.Remove()
 
             for (int i = 0; i < collision.gameObject.GetComponent<KeyHolder>().keys.Count; i++)
             {
                 if (keyword == collision.gameObject.GetComponent<KeyHolder>().keys[i])
                 {
                     collision.gameObject.GetComponent<KeyHolder>().keys.RemoveAt(i);
-                    triggerObject.gameObject.SetActive(true);
+
+                    if (triggerObject.gameObject != null)
+                    {
+                        triggerObject.gameObject.SetActive(true);
+                    }
+                    
                     gameObject.SetActive(false);
                 }
             }
@@ -34,4 +40,4 @@ public class LockTrigger : MonoBehaviour
         }
     }
 }
-        
+
