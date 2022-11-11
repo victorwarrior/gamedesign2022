@@ -16,6 +16,7 @@ TagManager:
   - Stone
   - Feet
   - Goal
+  - Key
   layers:
   - Default
   - TransparentFX

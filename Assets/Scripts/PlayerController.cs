@@ -151,6 +151,7 @@ public class PlayerController : MonoBehaviour
         hasKey = true;
     }
 
+
     public void LoseHealth()
     {
         health = health - healthLossAmount;
