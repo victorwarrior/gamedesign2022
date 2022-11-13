@@ -7,7 +7,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<PlayerController>().keyTrue();
+        other.gameObject.GetComponent<PlayerController>().keys++;
         gameObject.SetActive(false);
 
     }

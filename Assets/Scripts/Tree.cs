@@ -10,15 +10,11 @@ public class Tree : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<PlayerController>().hasKey == false)
-            {
-                Debug.Log("ingen key");
-            }
-
-            if (collision.gameObject.GetComponent<PlayerController>().hasKey == true)
-            {
+            if (collision.gameObject.GetComponent<PlayerController>().keys > 0) {
                 gameObject.SetActive(false);
-                collision.gameObject.GetComponent<PlayerController>().hasKey = false;
+                collision.gameObject.GetComponent<PlayerController>().keys--;
+            } else {
+                Debug.Log("no key");
             }
 
         }

@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D otherRb;
     public bool jump = false;
     public bool onGround;
-    public bool hasKey = false;
+    public int keys = 0;
     public int direction;
     public int health;
     public int healthLossAmount = 10;
@@ -145,12 +145,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }*/
-
-    public void keyTrue()
-    {
-        hasKey = true;
-    }
-
 
     public void LoseHealth()
     {
