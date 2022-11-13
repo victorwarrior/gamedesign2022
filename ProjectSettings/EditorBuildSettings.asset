@@ -9,36 +9,39 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Level 0.unity
+    path: Assets/Scenes/Level1.unity
     guid: adee5999a5d3a41f68e33eb694264764
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Level2.unity
     guid: 85f8652f8699445bb933a2296aac3980
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Level3.unity
     guid: accb3d1216d7449bfa7f2e46c9078c2e
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Tester 2.unity
+    path: Assets/Scenes/Level5.unity
     guid: 1936b0f3f7b724d04b6774a401003a68
   - enabled: 1
-    path: Assets/Scenes/Tester 3.unity
+    path: Assets/Scenes/Level9.unity
     guid: 3624be3f1247b1d4a8b8c0d407a7049e
   - enabled: 1
-    path: Assets/Scenes/Tester 4.unity
+    path: Assets/Scenes/Level6.unity
     guid: 9cb97591a014c104f9c6e338c76df409
   - enabled: 1
-    path: Assets/Scenes/Tester 5.unity
+    path: Assets/Scenes/Level7.unity
     guid: bcd4ff46b2bf54c53962656b53bc261b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tester.unity
     guid: 82abb7efc6a3d4add85a34041448a33e
   - enabled: 1
-    path: Assets/Scenes/VictorLevel1.unity
+    path: Assets/Scenes/Level4.unity
     guid: b9b1c47610fde8340865ee49b57131af
   - enabled: 1
-    path: Assets/Scenes/VictorLevel2.unity
+    path: Assets/Scenes/Level10.unity
     guid: d80c8c5f615a4b046a474ca4aed122fa
+  - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: 5cc3de2551088c64f86e88e5d64e334b
   m_configObjects: {}
