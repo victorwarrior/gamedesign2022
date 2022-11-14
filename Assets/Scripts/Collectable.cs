@@ -5,9 +5,11 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
 
+    public int keyType;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<PlayerController>().keys++;
+        other.gameObject.GetComponent<PlayerController>().keys[keyType]++;
         gameObject.SetActive(false);
 
     }
