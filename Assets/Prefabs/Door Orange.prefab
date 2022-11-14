@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7209007717649924219}
   - component: {fileID: 7209007717649924218}
   m_Layer: 0
-  m_Name: Door (1)
+  m_Name: Door Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae5cccfde1fff341811f8d10cd6701a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyType: 0
 --- !u!1 &7209007719265851877
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16a7f7a58e4c7465d826dbf48314038d, type: 2}
+  - {fileID: 2100000, guid: 5d703d5c2d43e4b06b8363f2a9d42eb1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
