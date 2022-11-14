@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262262303820535828}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.39, y: 2.87, z: 0}
   m_LocalScale: {x: 0.08, y: 0.16, z: 0.08}
   m_ConstrainProportionsScale: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIdentity: small
-  otherPlayer: {fileID: 3861747975510371772, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+  otherPlayer: {fileID: 0}
   keyLeft: left
   keyRight: right
   keyJump: up
@@ -105,14 +105,15 @@ MonoBehaviour:
   maxSpeed: 5.4
   jumpForce: 28
   dragAmount: 1.2
-  dragAmountUp: 16
+  dragAmountUp: 24
   deceleration: 1.32
   jump: 0
   onGround: 0
-  hasKey: 0
+  keys: 0
   direction: 0
   health: 0
   healthLossAmount: 10
+  testInteger: 0
 --- !u!1 &262262304064816662
 GameObject:
   m_ObjectHideFlags: 0
