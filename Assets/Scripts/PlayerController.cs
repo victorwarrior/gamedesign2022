@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D otherRb;
     public bool jump = false;
     public bool onGround;
-    public int[] keys = {0, 0, 0};
+    public int keys1 = 0;
+    public int keys2 = 0;
+    public int keys3 = 0;
     public int direction;
     public int health;
     public int healthLossAmount = 10;
