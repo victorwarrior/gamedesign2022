@@ -9,16 +9,24 @@ public class Tree : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player")) {
             switch (keyType) {
                 case 1:
-                    if (collision.gameObject.GetComponent<PlayerController>().keys1 > 0) collision.gameObject.GetComponent<PlayerController>().keys1--;
+                    if (collision.gameObject.GetComponent<PlayerController>().keys1 > 0) {
+                        collision.gameObject.GetComponent<PlayerController>().keys1--;
+                        gameObject.SetActive(false);
+                    }
                     break;
                 case 2:
-                    if (collision.gameObject.GetComponent<PlayerController>().keys1 > 0) collision.gameObject.GetComponent<PlayerController>().keys1--;
+                    if (collision.gameObject.GetComponent<PlayerController>().keys2 > 0) {
+                        collision.gameObject.GetComponent<PlayerController>().keys1--;
+                        gameObject.SetActive(false);
+                    }
                     break;
                 case 3:
-                    if (collision.gameObject.GetComponent<PlayerController>().keys1 > 0) collision.gameObject.GetComponent<PlayerController>().keys1--;
+                    if (collision.gameObject.GetComponent<PlayerController>().keys3 > 0) {
+                        collision.gameObject.GetComponent<PlayerController>().keys1--;
+                        gameObject.SetActive(false);
+                    }
                     break;
             }
-            gameObject.SetActive(false);
 
         } else {
             Debug.Log("no key");
