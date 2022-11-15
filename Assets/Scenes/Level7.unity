@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBig
       objectReference: {fileID: 0}
+    - target: {fileID: 5670001412544588730, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26d0117a4211541fcafc9c9da3271215, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
 --- !u!1001 &401763793
@@ -1948,14 +1952,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680026992}
-  m_LocalRotation: {x: 0.23617746, y: 0.0028727944, z: 0.010655486, w: 0.97164726}
-  m_LocalPosition: {x: 21, y: -2.2, z: -1.2}
+  m_LocalRotation: {x: -0.04439011, y: -0.0047165086, z: -0.009145945, w: 0.9989613}
+  m_LocalPosition: {x: 20.5, y: 30.9, z: 4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 27.316, y: 0.685, z: 1.423}
+  m_LocalEulerAnglesHint: {x: -5.093, y: -0.495, z: -1.027}
 --- !u!1 &1686571083
 GameObject:
   m_ObjectHideFlags: 0
