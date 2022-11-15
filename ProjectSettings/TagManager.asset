@@ -6,8 +6,6 @@ TagManager:
   tags:
   - DeathTrigger
   - Platform
-  - PlayerSmallHead
-  - PlayerBigHead
   - edge
   - DragdownRight
   - DragdownLeft
