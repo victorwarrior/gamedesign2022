@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 768917160403662421, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1a9121dd7f194ec5bfcf97bef6e33b8, type: 2}
+      objectReference: {fileID: 2100000, guid: f10bfe3b52228904f8d37cb50e353904, type: 2}
     - target: {fileID: 768917160403662423, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Name
       value: Platform (3)
@@ -873,7 +873,7 @@ PrefabInstance:
     - target: {fileID: 768917160403662421, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1a9121dd7f194ec5bfcf97bef6e33b8, type: 2}
+      objectReference: {fileID: 2100000, guid: f10bfe3b52228904f8d37cb50e353904, type: 2}
     - target: {fileID: 768917160403662423, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Name
       value: Platform (2)
@@ -971,7 +971,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1a9121dd7f194ec5bfcf97bef6e33b8, type: 2}
+  - {fileID: 2100000, guid: f10bfe3b52228904f8d37cb50e353904, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2114,7 +2114,7 @@ PrefabInstance:
     - target: {fileID: 768917160403662421, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1a9121dd7f194ec5bfcf97bef6e33b8, type: 2}
+      objectReference: {fileID: 2100000, guid: f10bfe3b52228904f8d37cb50e353904, type: 2}
     - target: {fileID: 768917160403662423, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Name
       value: Platform (1)
@@ -2643,7 +2643,7 @@ PrefabInstance:
     - target: {fileID: 768917160403662421, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1a9121dd7f194ec5bfcf97bef6e33b8, type: 2}
+      objectReference: {fileID: 2100000, guid: f10bfe3b52228904f8d37cb50e353904, type: 2}
     - target: {fileID: 768917160403662423, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
       propertyPath: m_Name
       value: Platform
