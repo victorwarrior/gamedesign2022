@@ -1665,6 +1665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: key-green
       objectReference: {fileID: 0}
+    - target: {fileID: 7796771621468227097, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
+      propertyPath: keyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7796771621468227100, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2867,6 +2871,14 @@ PrefabInstance:
     - target: {fileID: 7209007717649924217, guid: 917811ff57437408e8a37117f8f134c6, type: 3}
       propertyPath: m_Name
       value: Door Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209007717649924217, guid: 917811ff57437408e8a37117f8f134c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209007717649924218, guid: 917811ff57437408e8a37117f8f134c6, type: 3}
+      propertyPath: keyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917811ff57437408e8a37117f8f134c6, type: 3}
