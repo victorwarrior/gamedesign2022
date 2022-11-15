@@ -27,7 +27,7 @@ public class DoorToLever : MonoBehaviour
     }
 
 
-    public void Update() 
+    public void FixedUpdate() 
     {
         if (Lever.gameObject.GetComponent<Lever>().onButton == false && gameObject.transform.position.y > minStop)
         {
