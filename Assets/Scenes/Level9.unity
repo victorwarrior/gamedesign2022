@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f8767718f3f9d489967a6989f116c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hastighedUp: 5
-  hastighedDown: 0.1
+  hastighedUp: 6
+  hastighedDown: 0.04
   maxStop: 6
   minStop: 0
   Lever: {fileID: 290590682}
