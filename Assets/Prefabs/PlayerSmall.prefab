@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 262262303820535820}
   - component: {fileID: 262262303820535824}
   - component: {fileID: 262262303820535823}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSmall
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.9
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 914552c60511a2d408a22feb20fb029a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -109,11 +109,16 @@ MonoBehaviour:
   deceleration: 1.32
   jump: 0
   onGround: 0
-  keys: 0
+  keys1: 0
+  keys2: 0
+  keys3: 0
   direction: 0
   health: 0
   healthLossAmount: 10
   testInteger: 0
+  Groundable:
+    serializedVersion: 2
+    m_Bits: 704
 --- !u!1 &262262304064816662
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,13 +130,13 @@ GameObject:
   - component: {fileID: 262262304064816663}
   - component: {fileID: 262262304064816660}
   - component: {fileID: 262262304064816661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feet
   m_TagString: Feet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &262262304064816663
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262262305651304282}
   - component: {fileID: 262262305651304283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

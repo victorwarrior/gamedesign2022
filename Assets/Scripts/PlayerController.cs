@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     // other variables
     Rigidbody2D rb;
     Rigidbody2D otherRb;
+
+    Collider2D col;
+
     public bool jump = false;
     public bool onGround;
     public int keys1 = 0;
@@ -39,11 +42,14 @@ public class PlayerController : MonoBehaviour
     //public float xVelocityCheck = 0f;
     public int testInteger = 0;
 
+    [SerializeField] public LayerMask Groundable;
 
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
+
+        col = GetComponent<Collider2D>();
 
         playerIdentity = playerIdentity.ToLower();
 
@@ -52,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
 
     void Update() {
+
+        isGrounded();
+
         // jumping
         if (Input.GetKeyDown(keyJump) && onGround) {
             jump = true;
@@ -89,6 +98,7 @@ public class PlayerController : MonoBehaviour
         if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jump = false;
+            onGround = false;
         }
 
         // debug
@@ -162,5 +172,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    public bool isGrounded()
+    {
+
+        RaycastHit2D hit = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, 0.1f, Groundable);
+
+        if (hit.collider != null)
+        {
+            onGround = true;
+        }
+
+        if (hit.collider == null)
+        {
+            onGround = false;
+        }
+
+        return onGround;
+    }
 
 }
