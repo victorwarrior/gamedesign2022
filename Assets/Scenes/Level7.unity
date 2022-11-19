@@ -2340,7 +2340,7 @@ GameObject:
   - component: {fileID: 1869227225}
   - component: {fileID: 1869227224}
   - component: {fileID: 1869227223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: STONE2 (1)
   m_TagString: Stone
   m_Icon: {fileID: 0}
