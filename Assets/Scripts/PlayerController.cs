@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public ParticleSystem dust;
+
     // constants
     public string playerIdentity;
     public GameObject otherPlayer;
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if (direction != 0) {
             // movement
             rb.AddForce(Vector2.right * direction * speed);
+            CreateDust();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
         } else if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) <= 8.9) { // check if Vector2.Distance can be used instead -Victor
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour
         // jump
         if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            CreateDust();
             jump = false;
             onGround = false;
         }
@@ -189,6 +192,11 @@ public class PlayerController : MonoBehaviour
         }
 
         return onGround;
+    }
+
+    public void CreateDust()
+    {
+        dust.Play();
     }
 
 }

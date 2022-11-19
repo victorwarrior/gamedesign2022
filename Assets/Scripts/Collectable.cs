@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    public ParticleSystem KeyDust;
 
     public int keyType;
 
+    public SpriteRenderer spriteRenderer;
+    public BoxCollider2D boxCol;
+
+
+    private void Start()
+    {
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        this.boxCol = GetComponent<BoxCollider2D>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
+            CreateKeyDust();
             Debug.Log("deactivating key.");
             switch (keyType) {
                 case 1:
@@ -21,10 +33,15 @@ public class Collectable : MonoBehaviour
                     other.gameObject.GetComponent<PlayerController>().keys3++;
                     break;
             }
-            gameObject.SetActive(false);
+
+            this.spriteRenderer.enabled = false; // disable the renderer
+            this.boxCol.enabled = false;
         }
     }
 
-
+    public void CreateKeyDust()
+    {
+        KeyDust.Play();
+    }
 
 }
