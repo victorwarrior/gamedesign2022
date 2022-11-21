@@ -8,8 +8,8 @@ public class Collectable : MonoBehaviour
 
     public int keyType;
 
-    public SpriteRenderer spriteRenderer;
-    public BoxCollider2D boxCol;
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCol;
 
 
     private void Start()
