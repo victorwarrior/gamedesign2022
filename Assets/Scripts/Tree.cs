@@ -16,13 +16,13 @@ public class Tree : MonoBehaviour {
                     break;
                 case 2:
                     if (collision.gameObject.GetComponent<PlayerController>().keys2 > 0) {
-                        collision.gameObject.GetComponent<PlayerController>().keys1--;
+                        collision.gameObject.GetComponent<PlayerController>().keys2--;
                         gameObject.SetActive(false);
                     }
                     break;
                 case 3:
                     if (collision.gameObject.GetComponent<PlayerController>().keys3 > 0) {
-                        collision.gameObject.GetComponent<PlayerController>().keys1--;
+                        collision.gameObject.GetComponent<PlayerController>().keys3--;
                         gameObject.SetActive(false);
                     }
                     break;
