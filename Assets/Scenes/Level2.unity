@@ -695,10 +695,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3018042347018196682, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
-      propertyPath: keyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3018042347018196683, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
       propertyPath: m_Name
       value: Key-yellow
@@ -706,10 +702,6 @@ PrefabInstance:
     - target: {fileID: 3018042347018196684, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018042347018196684, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3018042347018196684, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
       propertyPath: m_LocalPosition.x
