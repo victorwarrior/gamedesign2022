@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public ParticleSystem KeyDust;
+    //public ParticleSystem KeyDust;
 
     public int keyType;
 
@@ -20,7 +20,6 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            CreateKeyDust();
             Debug.Log("deactivating key.");
             switch (keyType) {
                 case 1:
@@ -37,11 +36,6 @@ public class Collectable : MonoBehaviour
             this.spriteRenderer.enabled = false; // disable the renderer
             this.boxCol.enabled = false;
         }
-    }
-
-    public void CreateKeyDust()
-    {
-        KeyDust.Play();
     }
 
 }

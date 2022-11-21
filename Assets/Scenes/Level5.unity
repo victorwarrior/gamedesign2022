@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -561,10 +561,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 594375363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89beb3ed6dec041318f3d454ed9a4d51, type: 3}
+  m_Script: {fileID: 11500000, guid: e46967d945ab4124cb0d005f44435d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyword: 2
+  KeyDust: {fileID: 1767100463}
+  keyType: 2
 --- !u!1 &613904815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,9 +1619,9 @@ PrefabInstance:
       value: key-green
       objectReference: {fileID: 0}
     - target: {fileID: 7796771621468227097, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
-      propertyPath: keyType
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: KeyDust
+      value: 
+      objectReference: {fileID: 1767100463}
     - target: {fileID: 7796771621468227100, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1807,11 +1808,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1271898506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0dc7d43e16c42c0b18a55da05907d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ae5cccfde1fff341811f8d10cd6701a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerObject: {fileID: 1377279059}
-  keyword: 2
+  keyType: 2
 --- !u!1001 &1291120599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2091,13 +2091,13 @@ GameObject:
   - component: {fileID: 1377279062}
   - component: {fileID: 1377279061}
   - component: {fileID: 1377279060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wall tilt
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!233 &1377279060
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -2439,6 +2439,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3018042347018196682, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
+--- !u!198 &1767100463 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 878716640, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
+  m_PrefabInstance: {fileID: 1767100462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801813242
 GameObject:
   m_ObjectHideFlags: 0

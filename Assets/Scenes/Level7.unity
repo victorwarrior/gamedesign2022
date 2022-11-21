@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 1153965279}
   - component: {fileID: 1153965278}
   - component: {fileID: 1153965280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: kant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,9 +1666,9 @@ PrefabInstance:
       value: key-green
       objectReference: {fileID: 0}
     - target: {fileID: 7796771621468227097, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
-      propertyPath: keyType
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: KeyDust
+      value: 
+      objectReference: {fileID: 1865751211}
     - target: {fileID: 7796771621468227100, guid: f121f048267e2435bb1b2d7dd80978cc, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 1686571087}
   - component: {fileID: 1686571086}
   - component: {fileID: 1686571088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: kant (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,6 +2327,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3018042347018196684, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
   m_PrefabInstance: {fileID: 1865751209}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1865751211 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 878716640, guid: cc4b1a445637f4535aaa3291c0fb4ed9, type: 3}
+  m_PrefabInstance: {fileID: 1865751209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1869227222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2517,7 @@ GameObject:
   - component: {fileID: 1924603455}
   - component: {fileID: 1924603454}
   - component: {fileID: 1924603453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wall tilt
   m_TagString: Platform
   m_Icon: {fileID: 0}

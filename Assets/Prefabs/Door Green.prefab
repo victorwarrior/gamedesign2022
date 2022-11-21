@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7209007717649924212}
   - component: {fileID: 7209007717649924219}
   - component: {fileID: 7209007717649924218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7209007719265851873}
   - component: {fileID: 7209007719265851872}
   - component: {fileID: 7209007719265851879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "n\xF8glehul"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

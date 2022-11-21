@@ -808,9 +808,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7209007717649924217, guid: 381d63c5b3e8c4065bbd039053a188f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7209007717649924218, guid: 381d63c5b3e8c4065bbd039053a188f1, type: 3}
       propertyPath: keyType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209007719265851877, guid: 381d63c5b3e8c4065bbd039053a188f1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7209007719265851878, guid: 381d63c5b3e8c4065bbd039053a188f1, type: 3}
       propertyPath: m_LocalPosition.z

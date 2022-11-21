@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7209007717649924212}
   - component: {fileID: 7209007717649924219}
   - component: {fileID: 7209007717649924218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae5cccfde1fff341811f8d10cd6701a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyType: 0
 --- !u!1 &7209007719265851877
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 7209007719265851873}
   - component: {fileID: 7209007719265851872}
   - component: {fileID: 7209007719265851879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "n\xF8glehul"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

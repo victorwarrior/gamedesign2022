@@ -124,4 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46967d945ab4124cb0d005f44435d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 0
+  KeyDust: {fileID: 0}
+  keyType: 1
