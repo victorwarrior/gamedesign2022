@@ -268,6 +268,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 219329825, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1333640078, guid: af0730ec330684650879666ec0cda496, type: 3}
       propertyPath: m_Name
       value: Dust
@@ -2032,6 +2036,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1630752300, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752301, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
