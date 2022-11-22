@@ -27,7 +27,7 @@ public class DoorToLever : MonoBehaviour
         minStop = (float)gameObject.transform.position.y;
         maxStop = (float)gameObject.transform.position.y + maxStop;
 
-        timerDuration = maxStop - minStop;
+        timerDuration = maxStop - (minStop);
         uiFill = timer.GetComponent<Image>();
 
         StartCoroutine(UpdateTimer());
@@ -43,7 +43,7 @@ public class DoorToLever : MonoBehaviour
         }
 
 
-        print("duration:"+timerDuration+" remaining:"+timerRemainingDuration+" lerp:"+Mathf.InverseLerp(0, timerDuration, timerRemainingDuration));
+        //print("duration:"+timerDuration+" remaining:"+timerRemainingDuration+" lerp:"+Mathf.InverseLerp(0, timerDuration, timerRemainingDuration));
     }
 
     [HideInInspector]
