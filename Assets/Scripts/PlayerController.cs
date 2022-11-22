@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if(onGround == true)
+        if (onGround == true)
         {
             CreateDust2();
             Debug.Log("laver dust");
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // pushing stone
+    // pushing stone (commented out because big instead has permanent super speed)
     /*private void OnCollisionStay2D(Collision2D collision)
     {
         if (playerIdentity == "big" && collision.gameObject.CompareTag("Stone"))
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 
-    public void LoseHealth()
+    /*public void LoseHealth()
     {
         health = health - healthLossAmount;
 
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("you are dead.");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
+    }*/
 
 
     public bool isGrounded()
