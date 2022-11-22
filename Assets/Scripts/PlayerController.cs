@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
         if (hit.collider != null)
         {
             onGround = true;
+            CreateDust2();
         }
 
         if (hit.collider == null)
