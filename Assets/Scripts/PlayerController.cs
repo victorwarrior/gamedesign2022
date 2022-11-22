@@ -123,6 +123,12 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        if(onGround == true)
+        {
+            CreateDust2();
+            Debug.Log("laver dust");
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -188,7 +194,6 @@ public class PlayerController : MonoBehaviour
         if (hit.collider != null)
         {
             onGround = true;
-            CreateDust2();
         }
 
         if (hit.collider == null)
