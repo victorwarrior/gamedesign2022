@@ -10,7 +10,7 @@ public class Collectable : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCol;
-
+    public AudioClip keySound;
 
     private void Start()
     {
@@ -36,8 +36,12 @@ public class Collectable : MonoBehaviour
                     break;
             }
 
-            this.spriteRenderer.enabled = false; // disable the renderer
-            this.boxCol.enabled = false;
+            //this.spriteRenderer.enabled = false; // disable the renderer
+            //this.boxCol.enabled = false;
+
+            gameObject.GetComponent<AudioSource>().PlayOneShot(keySound);
+
+            gameObject.SetActive(false);
         }
     }
 
