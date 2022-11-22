@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public ParticleSystem dust1;
-    public ParticleSystem dust2;
+    public ParticleSystem dustWalk;
+    public ParticleSystem dustSpeed;
+    public ParticleSystem dustJump;
 
 
     // constants
@@ -87,8 +88,8 @@ public class PlayerController : MonoBehaviour
         if (direction != 0) {
             // movement
             rb.AddForce(Vector2.right * direction * speed);
-            CreateDust1();
-            CreateDust2();
+            CreateDustWalk();
+            CreateDustSpeed();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
         } else if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) <= 8.9) { // check if Vector2.Distance can be used instead -Victor
@@ -102,8 +103,8 @@ public class PlayerController : MonoBehaviour
         // jump
         if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            CreateDust1();
-            CreateDust2();
+            CreateDustWalk();
+            CreateDustSpeed();
             jump = false;
             onGround = false;
         }
@@ -123,12 +124,14 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (onGround == true)
-        {
-            CreateDust2();
-            Debug.Log("laver dust");
-        }
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            dustJump.Play();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -204,13 +207,18 @@ public class PlayerController : MonoBehaviour
         return onGround;
     }
 
-    public void CreateDust1()
+    public void CreateDustWalk()
     {
-        dust1.Play();
+        dustWalk.Play();
     }
 
-    public void CreateDust2()
+    public void CreateDustSpeed()
     {
-        dust2.Play();
+        dustSpeed.Play();
+    }
+
+    public void CreateDustJump()
+    {
+        dustJump.Play();
     }
 }
