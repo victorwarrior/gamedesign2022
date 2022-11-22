@@ -21,9 +21,12 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             Debug.Log("deactivating key.");
+
             switch (keyType) {
                 case 1:
                     other.gameObject.GetComponent<PlayerController>().keys1++;
+                    //if (other.gameObject.getComponent<PlayerController>().keys2 == 0) {
+                    //}
                     break;
                 case 2:
                     other.gameObject.GetComponent<PlayerController>().keys2++;

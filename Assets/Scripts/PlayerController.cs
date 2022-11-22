@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public ParticleSystem dust;
+    public ParticleSystem dustWalk;
+    public ParticleSystem dustSpeed;
+    public ParticleSystem dustJump;
+
 
     // constants
     public string playerIdentity;
@@ -85,7 +88,8 @@ public class PlayerController : MonoBehaviour
         if (direction != 0) {
             // movement
             rb.AddForce(Vector2.right * direction * speed);
-            CreateDust();
+            CreateDustWalk();
+            CreateDustSpeed();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
         } else if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) <= 8.9) { // check if Vector2.Distance can be used instead -Victor
@@ -99,7 +103,8 @@ public class PlayerController : MonoBehaviour
         // jump
         if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            CreateDust();
+            CreateDustWalk();
+            CreateDustSpeed();
             jump = false;
             onGround = false;
         }
@@ -119,6 +124,14 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            dustJump.Play();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -145,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // pushing stone
+    // pushing stone (commented out because big instead has permanent super speed)
     /*private void OnCollisionStay2D(Collision2D collision)
     {
         if (playerIdentity == "big" && collision.gameObject.CompareTag("Stone"))
@@ -161,7 +174,7 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 
-    public void LoseHealth()
+    /*public void LoseHealth()
     {
         health = health - healthLossAmount;
 
@@ -173,7 +186,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("you are dead.");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
+    }*/
 
 
     public bool isGrounded()
@@ -194,9 +207,18 @@ public class PlayerController : MonoBehaviour
         return onGround;
     }
 
-    public void CreateDust()
+    public void CreateDustWalk()
     {
-        dust.Play();
+        dustWalk.Play();
     }
 
+    public void CreateDustSpeed()
+    {
+        dustSpeed.Play();
+    }
+
+    public void CreateDustJump()
+    {
+        dustJump.Play();
+    }
 }
