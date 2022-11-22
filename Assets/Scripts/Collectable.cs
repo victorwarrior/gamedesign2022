@@ -36,13 +36,18 @@ public class Collectable : MonoBehaviour
                     break;
             }
 
-            //this.spriteRenderer.enabled = false; // disable the renderer
-            //this.boxCol.enabled = false;
+            this.spriteRenderer.enabled = false; // disable the renderer
+            this.boxCol.enabled = false;
 
             gameObject.GetComponent<AudioSource>().PlayOneShot(keySound);
 
-            gameObject.SetActive(false);
+            Invoke("sletObject", 5f);
         }
+    }
+
+    public void sletObject()
+    {
+        gameObject.SetActive(false);
     }
 
 }
