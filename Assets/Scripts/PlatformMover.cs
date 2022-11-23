@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class PlatformMover : MonoBehaviour
 {
     public bool directionToggle    = false;
     public bool horizontalMovement = false;
