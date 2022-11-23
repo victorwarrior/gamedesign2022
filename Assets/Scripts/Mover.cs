@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public bool updateOn = false;
-    public bool opOgNed = false;
-    public bool venstreOgHojre = false;
-    public bool CircleFormation = false;
-    public float Seconds = 5;
+    public bool directionToggle    = false;
+    public bool horizontalMovement = false;
+    public bool verticalMovement   = false;
+    public bool circularMovement   = false;
+    public float seconds           = 5;
     public float hastighed;
 
     int cyklus = 0;
@@ -16,94 +16,55 @@ public class Mover : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(updateOff());
+        StartCoroutine(Timer());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (opOgNed == true)
-        {
-            if (updateOn == true)
-            {
-                up();
+        if (circularMovement == true) {
+            if      (cyklus == 0) MoveLeft();
+            else if (cyklus == 1) MoveUp();
+            else if (cyklus == 2) MoveRight();
+            else if (cyklus == 3) MoveDown();
+        } else {
+            if (horizontalMovement == true) {
+                if (directionToggle == true)  MoveUp();
+                if (directionToggle == false) MoveDown();
             }
-
-            if (updateOn == false)
-            {
-                down();
+            if (verticalMovement == true) {
+                if (directionToggle == true)  MoveLeft();
+                if (directionToggle == false) MoveRight();
             }
-        }
-
-        else
-        {
-            if (venstreOgHojre == true)
-            {
-                if (updateOn == true)
-                {
-                    left();
-                }
-
-                if (updateOn == false)
-                {
-                    right();
-                }
-            }
-        }
-
-
-        if (CircleFormation == true)
-        {
-
-            if (cyklus == 0)
-            {
-                left();
-            }
-
-            if (cyklus == 1)
-            {
-                up();
-            }
-
-            if (cyklus == 2)
-            {
-                right();
-            }
-
-            if (cyklus == 3)
-            {
-                down();
-            }
-
         }
     }
 
-        void up()
-        {
-            transform.Translate(Vector2.up * hastighed * Time.deltaTime, Space.World);
-        }
+    void MoveUp()
+    {
+        transform.Translate(Vector2.up * hastighed * Time.deltaTime, Space.World);
+    }
 
-        void down()
-        {
-            transform.Translate(Vector2.down * hastighed * Time.deltaTime, Space.World);
-        }
+    void MoveDown()
+    {
+        transform.Translate(Vector2.down * hastighed * Time.deltaTime, Space.World);
+    }
 
-        void left()
-        {
-            transform.Translate(Vector2.left * hastighed * Time.deltaTime, Space.World);
-        }
+    void MoveLeft()
+    {
+        transform.Translate(Vector2.left * hastighed * Time.deltaTime, Space.World);
+    }
 
-        void right()
-        {
-            transform.Translate(Vector2.right * hastighed * Time.deltaTime, Space.World);
-        }
+    void MoveRight()
+    {
+        transform.Translate(Vector2.right * hastighed * Time.deltaTime, Space.World);
+    }
 
-        IEnumerator updateOff()
-        {
-            yield return new WaitForSeconds(Seconds);
-            updateOn = !updateOn;
-            cyklus = (cyklus + 1) % 4;
-            StartCoroutine(updateOff());
-        }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(seconds);
+        directionToggle = !directionToggle;
+        cyklus = (cyklus + 1) % 4;
+        StartCoroutine(Timer());
+    }
  }
 
