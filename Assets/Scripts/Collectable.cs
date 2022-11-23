@@ -44,5 +44,4 @@ public class Collectable : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 }

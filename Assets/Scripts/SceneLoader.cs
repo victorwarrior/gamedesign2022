@@ -13,7 +13,6 @@ public class SceneLoader : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(nextScene);
-           
         }
     }
 
