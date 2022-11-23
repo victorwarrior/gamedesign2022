@@ -9650,7 +9650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630752300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.1, z: 0}
+  m_LocalPosition: {x: 0, y: -9.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9793,8 +9793,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 2
+      scalar: 8
+      minScalar: 8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9909,7 +9909,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10285,7 +10285,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 21
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -10430,7 +10430,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 150
-      mode: 0
+      mode: 3
       spread: 0
       speed:
         serializedVersion: 2
@@ -14737,9 +14737,6 @@ MonoBehaviour:
   health: 0
   healthLossAmount: 10
   testInteger: 0
-  Groundable:
-    serializedVersion: 2
-    m_Bits: 896
 --- !u!114 &3861747975510371662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14854,7 +14851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5670001412574848421
 Transform:
   m_ObjectHideFlags: 0
