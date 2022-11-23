@@ -15,8 +15,7 @@ public class Pendul : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if (timer > 1f)
         {
-            phase++;
-            phase %= 4;
+            phase = (phase + 1) % 4;
             timer = 0;
         }
 
