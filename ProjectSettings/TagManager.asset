@@ -15,7 +15,6 @@ TagManager:
   - Feet
   - Goal
   - Key
-  - Water
   layers:
   - Default
   - TransparentFX
