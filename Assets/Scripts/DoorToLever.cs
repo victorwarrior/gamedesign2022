@@ -11,6 +11,7 @@ public class DoorToLever : MonoBehaviour
     public float minStop;
     public GameObject Lever;
     public GameObject timer;
+    public GameObject timerBackground;
 
     private float timerDuration;
     private float timerRemainingDuration;
@@ -27,10 +28,9 @@ public class DoorToLever : MonoBehaviour
         minStop = (float)gameObject.transform.position.y;
         maxStop = (float)gameObject.transform.position.y + maxStop;
 
-        timerDuration = maxStop - (minStop);
+        timerDuration = maxStop - minStop;
         uiFill = timer.GetComponent<Image>();
 
-        StartCoroutine(UpdateTimer());
     }
 
     public void FixedUpdate()
@@ -42,19 +42,26 @@ public class DoorToLever : MonoBehaviour
             down();
         }
 
-
-        //print("duration:"+timerDuration+" remaining:"+timerRemainingDuration+" lerp:"+Mathf.InverseLerp(0, timerDuration, timerRemainingDuration));
+        if (timerRemainingDuration < 0)
+        {
+            timerBackground.GetComponent<Image>().enabled = false;
+            uiFill.enabled = false;
+        }
+        //print("duration:" + timerDuration + " remaining:" + timerRemainingDuration + " lerp:" + Mathf.InverseLerp(0, timerDuration, timerRemainingDuration));
     }
 
     [HideInInspector]
     public void down()
     {
         transform.Translate(Vector2.down * hastighedDown * Time.deltaTime, Space.World);
-
     }
 
     public void stopUp() //når player står på knappen
     {
+        StartCoroutine(UpdateTimer());
+        timerBackground.GetComponent<Image>().enabled = true;
+        uiFill.enabled = true;
+
         if (maxStop >= gameObject.transform.position.y)
         {
             up();
@@ -63,13 +70,13 @@ public class DoorToLever : MonoBehaviour
 
     private IEnumerator UpdateTimer()
     {
-        while (timerDuration >= 0)
+        while (timerRemainingDuration >= 0)
         {
             uiFill.fillAmount = Mathf.InverseLerp(0, timerDuration, timerRemainingDuration);
+            //a- start of range, b- end of range, value- the point within the range you want to calculate
             yield return null;
         }
         yield return new WaitForFixedUpdate();
     }
-
 
 }
