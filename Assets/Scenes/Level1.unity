@@ -1840,6 +1840,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1630752301, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630752303, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
