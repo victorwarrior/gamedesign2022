@@ -302,6 +302,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1682835975, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 342256926}
+    - target: {fileID: 1768750808, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 342256926}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
@@ -1038,6 +1046,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766758027, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 372504601}
+    - target: {fileID: 1458118457, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 372504601}
     - target: {fileID: 262262303820535823, guid: af0730ec330684650879666ec0cda496, type: 3}
       propertyPath: otherPlayer
       value: 
