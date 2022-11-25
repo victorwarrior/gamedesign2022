@@ -1768,6 +1768,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1077389554, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843616, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: m_Name
       value: GoalFlag
