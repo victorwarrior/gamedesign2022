@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public bool jump = false;
     public bool onGround;
+    public bool swinging;
     public int keys1 = 0;
     public int keys2 = 0;
     public int keys3 = 0;
@@ -81,6 +82,19 @@ public class PlayerController : MonoBehaviour
  
         if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
         if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
+        
+        // swinging
+        swinging = false;
+        if ((Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9)
+        && (onGround == false && otherPlayer.GetComponent<PlayerController>().onGround == true && (transform.position.y < otherPlayer.transform.position.y))) {
+            // oversætning af if-statementet oven over:
+            // if the distance between the players is the max. distance
+            // && this player is off the ground 
+            // && this other player is on the ground
+            // && this player is beneath the other player
+            maxSpeed *= 1.7f;
+            swinging = true;
+        }
 
         if (direction != 0) {
             // movement
@@ -89,13 +103,9 @@ public class PlayerController : MonoBehaviour
             CreateDustSpeed();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        } else if ((Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9) && (onGround == false || otherPlayer.GetComponent<PlayerController>().onGround == false)) { // check if Vector2.Distance can be used instead -Victor
-            // swinging
-            maxSpeed *= 2;
-            Debug.Log("TEST");
         } else {
             // deceleration
-            rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
+            if (swinging == false) rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
         }
 
         // jump
