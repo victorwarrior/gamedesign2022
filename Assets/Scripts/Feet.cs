@@ -16,12 +16,28 @@ public class Feet : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        //Debug.Log("onTriggerEnter Feet");
+
+        if (collision.gameObject.CompareTag("Platform")
+         || collision.gameObject.CompareTag("Player")
+         || collision.gameObject.CompareTag("Stone")) {
+
+            gameObject.GetComponentInParent<PlayerController>().onGround = true;
+            gameObject.GetComponentInParent<PlayerController>().dustJump.Play();
+            gameObject.GetComponentInParent<PlayerController>().squashStrechAnimation.SetTrigger("Landing");
+
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Platform")
          || collision.gameObject.CompareTag("Player")
          || collision.gameObject.CompareTag("Stone")) {
-            gameObject.GetComponentInParent<PlayerController>().onGround = true;            
+
+            //gameObject.GetComponentInParent<PlayerController>().onGround = true;
+
         }
     }
 
