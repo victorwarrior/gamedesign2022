@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public string keyLeft, keyRight, keyJump, keyRestart;
 
     public float speed;
+    public float maxSpeedBigConstant = 4.2f;
+    public float maxSpeedSmallConstant = 5.8f;
     public float maxSpeed;
     public float jumpForce;
 
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public int keys2 = 0;
     public int keys3 = 0;
     public int direction;
-    public int health;
+    public int health = 100;
     public int healthLossAmount = 10;
 
     // debug variables
@@ -50,10 +52,9 @@ public class PlayerController : MonoBehaviour
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
-
         playerIdentity = playerIdentity.ToLower();
-
-        health = 100;
+      
+        rb.drag = 0.25f;
     }
 
 
@@ -77,7 +78,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
 
-        rb.drag = 0.25f;
+ 
+        if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
+        if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
 
         if (direction != 0) {
             // movement
@@ -86,12 +89,13 @@ public class PlayerController : MonoBehaviour
             CreateDustSpeed();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        } else if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) <= 8.9) { // check if Vector2.Distance can be used instead -Victor
+        } else if ((Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9) && (onGround == false || otherPlayer.GetComponent<PlayerController>().onGround == false)) { // check if Vector2.Distance can be used instead -Victor
+            // swinging
+            maxSpeed *= 2;
+            Debug.Log("TEST");
+        } else {
             // deceleration
             rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
-        } else {
-            // drag when swinging
-            rb.drag = 0.25f;
         }
 
         // jump
@@ -130,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
 
+        // drag down force
         if (playerIdentity == "big") {
             if (collision.gameObject.CompareTag("DragdownRight") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
                 otherRb.AddForce(Vector2.right * dragAmount, ForceMode2D.Impulse);
@@ -142,6 +147,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // drag up force
         if (playerIdentity == "small" && onGround == false) {
             if (collision.gameObject.CompareTag("DragUp") && otherPlayer.GetComponent<PlayerController>().onGround == true) {
                 if ((transform.position.x > otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == -1) || (transform.position.x < otherPlayer.transform.position.x && otherPlayer.GetComponent<PlayerController>().direction == 1)) {
@@ -168,19 +174,6 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 
-    /*public void LoseHealth()
-    {
-        health = health - healthLossAmount;
-
-        rb.AddForce(Vector2.right * 50, ForceMode2D.Impulse);
-
-
-        if (health <= 0)
-        {
-            Debug.Log("you are dead.");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }*/
 
 
     public void CreateDustWalk()
