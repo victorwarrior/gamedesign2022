@@ -14879,6 +14879,7 @@ MonoBehaviour:
   dustWalk: {fileID: 1333640079}
   dustSpeed: {fileID: 219329827}
   dustJump: {fileID: 1254527049}
+  squashStrechAnimation: {fileID: 6119408113287911564}
   playerIdentity: small
   otherPlayer: {fileID: 0}
   keyLeft: left
@@ -14895,6 +14896,7 @@ MonoBehaviour:
   deceleration: 1.32
   jump: 0
   onGround: 0
+  swinging: 0
   keys1: 0
   keys2: 0
   keys3: 0

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dustSpeed;
     public ParticleSystem dustJump;
 
+    public Animator squashStrechAnimation;
 
     // constants
     public string playerIdentity;
@@ -110,9 +111,12 @@ public class PlayerController : MonoBehaviour
 
         // jump
         if (jump) {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
             CreateDustWalk();
             CreateDustSpeed();
+            squashStrechAnimation.SetTrigger("Jump");
+
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jump = false;
             onGround = false;
         }
@@ -121,6 +125,8 @@ public class PlayerController : MonoBehaviour
         //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
 
     }
+    
+  
     
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -139,6 +145,7 @@ public class PlayerController : MonoBehaviour
         if (onGround == true)
         {
             dustJump.Play();
+            squashStrechAnimation.SetTrigger("Landing");
         }
     }
 

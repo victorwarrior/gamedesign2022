@@ -2302,7 +2302,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8878929596319351926}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1875873370
 SpriteRenderer:
@@ -2670,18 +2670,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261429357, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1630752300, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630752301, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682835974, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1682835975, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2035891985}
+    - target: {fileID: 1768750807, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1768750808, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: player
       value: 
@@ -2794,6 +2806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBig
       objectReference: {fileID: 0}
+    - target: {fileID: 8916285390027817928, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b45d62214175e641b080d54646dcb56, type: 2}
     m_RemovedComponents:
     - {fileID: 8878929594795044386, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
