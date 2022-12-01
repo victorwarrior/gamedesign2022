@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1673,8 +1673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionToggle: 0
-  horizontalMovement: 0
-  verticalMovement: 0
+  verMovement: 0
+  horMovement: 0
   circularMovement: 0
   seconds: 5
   hastighed: 5
@@ -1917,6 +1917,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 134297558}
+    - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 

@@ -311,6 +311,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 342256926}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 342256929}
