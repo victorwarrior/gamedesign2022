@@ -86,15 +86,12 @@ public class PlayerController : MonoBehaviour
         // swinging
         swinging = false;
         if ((Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9)
-        && (onGround == false && otherPlayer.GetComponent<PlayerController>().onGround == true && (transform.position.y < otherPlayer.transform.position.y))) {
-            // oversætning af if-statementet oven over:
-            // if the distance between the players is the max. distance
-            // && this player is off the ground 
-            // && this other player is on the ground
-            // && this player is beneath the other player
+        && (onGround == false)
+        && (otherPlayer.GetComponent<PlayerController>().onGround == true)
+        && (transform.position.y < otherPlayer.transform.position.y)) {
 
             swinging = true;
-
+            testAngle = Vector2.Angle(new Vector2(transform.position.x, transform.position.y + 10), new Vector2(otherPlayer.transform.position.x, otherPlayer.transform.position.y));
             maxSpeed *= 1.7f;
         }
 

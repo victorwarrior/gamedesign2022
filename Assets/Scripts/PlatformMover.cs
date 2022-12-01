@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlatformMover : MonoBehaviour
 {
-    public bool directionToggle    = false;
-    public bool horizontalMovement = false;
-    public bool verticalMovement   = false;
-    public bool circularMovement   = false;
-    public float seconds           = 5;
+    public bool directionToggle  = false;
+    public bool verMovement      = false;
+    public bool horMovement      = false;
+    public bool circularMovement = false;
+    public float seconds         = 5;
     public float hastighed;
 
     int cyklus = 0;
@@ -28,11 +28,11 @@ public class PlatformMover : MonoBehaviour
             else if (cyklus == 2) MoveRight();
             else if (cyklus == 3) MoveDown();
         } else {
-            if (horizontalMovement == true) {
+            if (verMovement        == true) {
                 if (directionToggle == true)  MoveUp();
                 if (directionToggle == false) MoveDown();
             }
-            if (verticalMovement == true) {
+            if (horMovement == true) {
                 if (directionToggle == true)  MoveLeft();
                 if (directionToggle == false) MoveRight();
             }
