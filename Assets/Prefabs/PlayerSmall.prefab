@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1254258477
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14923,7 +14923,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1254258477
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -15243,6 +15243,7 @@ MonoBehaviour:
   health: 0
   healthLossAmount: 10
   testInteger: 0
+  testAngle: 0
 --- !u!61 &1911960411
 BoxCollider2D:
   m_ObjectHideFlags: 0

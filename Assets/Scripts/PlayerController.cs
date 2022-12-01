@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dustWalk;
     public ParticleSystem dustSpeed;
     public ParticleSystem dustJump;
+    public ParticleSystem sweat;
+
 
     public Animator squashStrechAnimation;
 
@@ -72,6 +74,12 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9)
+        {
+            Debug.Log("Den laver sweat");
+            CreateSweat();
+        }
+
     }
 
     private void FixedUpdate() {
@@ -93,7 +101,12 @@ public class PlayerController : MonoBehaviour
             swinging = true;
             testAngle = Vector2.Angle(new Vector2(transform.position.x, transform.position.y + 10), new Vector2(otherPlayer.transform.position.x, otherPlayer.transform.position.y));
             maxSpeed *= 1.7f;
+
+            
+
         }
+
+        
 
         if (direction != 0) {
             // movement
@@ -193,4 +206,10 @@ public class PlayerController : MonoBehaviour
     {
         dustJump.Play();
     }
+
+    public void CreateSweat()
+    {
+        sweat.Play();
+    }
+    
 }
