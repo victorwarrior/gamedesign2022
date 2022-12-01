@@ -24,15 +24,10 @@ public class Key : MonoBehaviour
 
             switch (keyType) {
                 case 1:
-                    other.gameObject.GetComponent<PlayerController>().keys1++;
-                    //if (other.gameObject.getComponent<PlayerController>().keys2 == 0) {
-                    //}
+                    other.gameObject.GetComponent<PlayerController>().keysYellow++;
                     break;
                 case 2:
-                    other.gameObject.GetComponent<PlayerController>().keys2++;
-                    break;
-                case 3:
-                    other.gameObject.GetComponent<PlayerController>().keys3++;
+                    other.gameObject.GetComponent<PlayerController>().keysGreen++;
                     break;
             }
 

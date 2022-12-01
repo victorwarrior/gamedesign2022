@@ -38,9 +38,8 @@ public class PlayerController : MonoBehaviour
     public bool jump = false;
     public bool onGround;
     public bool swinging;
-    public int keys1 = 0;
-    public int keys2 = 0;
-    public int keys3 = 0;
+    public int keysYellow = 0;
+    public int keysGreen  = 0;
     public int direction;
     public int health = 100;
     public int healthLossAmount = 10;
@@ -53,10 +52,10 @@ public class PlayerController : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 0.25f;
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
       
-        rb.drag = 0.25f;
     }
 
 
@@ -80,7 +79,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
 
- 
         if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
         if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
         
@@ -125,9 +123,6 @@ public class PlayerController : MonoBehaviour
         //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
 
     }
-    
-  
-    
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -138,15 +133,6 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (onGround == true)
-        {
-            dustJump.Play();
-            squashStrechAnimation.SetTrigger("Landing");
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
