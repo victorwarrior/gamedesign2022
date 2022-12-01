@@ -36,15 +36,16 @@ public class Feet : MonoBehaviour
          || collision.gameObject.CompareTag("Player")
          || collision.gameObject.CompareTag("Stone")) {
 
-            //gameObject.GetComponentInParent<PlayerController>().onGround = true;
+            gameObject.GetComponentInParent<PlayerController>().onGround = true; // is currently there to fix OnTriggerExit making it impossible to jump
 
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stone"))
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stone")) {
             gameObject.GetComponentInParent<PlayerController>().onGround = false;
+        }
         
     }
 
