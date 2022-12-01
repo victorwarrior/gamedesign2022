@@ -22,11 +22,11 @@ public class Feet : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform")
          || collision.gameObject.CompareTag("Player")
          || collision.gameObject.CompareTag("Stone")) {
-
-            gameObject.GetComponentInParent<PlayerController>().onGround = true;
-            gameObject.GetComponentInParent<PlayerController>().dustJump.Play();
-            gameObject.GetComponentInParent<PlayerController>().squashStrechAnimation.SetTrigger("Landing");
-
+            if (gameObject.GetComponentInParent<PlayerController>().onGround == false) {
+                gameObject.GetComponentInParent<PlayerController>().onGround = true;
+                gameObject.GetComponentInParent<PlayerController>().dustJump.Play();
+                gameObject.GetComponentInParent<PlayerController>().squashStrechAnimation.SetTrigger("Landing");
+            }
         }
     }
 
