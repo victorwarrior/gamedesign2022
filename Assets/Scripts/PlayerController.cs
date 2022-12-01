@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     // debug variables
     //public float xVelocityCheck = 0f;
     public int testInteger = 0;
+    public float testAngle = 0.0f;
 
 
 
@@ -91,8 +92,10 @@ public class PlayerController : MonoBehaviour
             // && this player is off the ground 
             // && this other player is on the ground
             // && this player is beneath the other player
-            maxSpeed *= 1.7f;
+
             swinging = true;
+
+            maxSpeed *= 1.7f;
         }
 
         if (direction != 0) {
