@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -572,11 +572,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
+      propertyPath: seconds
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
       propertyPath: updateOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
+      propertyPath: horMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
       propertyPath: venstreOgHojre
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
+      propertyPath: directionToggle
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1672,11 +1684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b4aeebf2fbc7a4798dab0eacf04d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToggle: 0
-  verMovement: 0
+  directionToggle: 1
+  verMovement: 1
   horMovement: 0
   circularMovement: 0
-  seconds: 5
+  seconds: 4.3
   hastighed: 5
 --- !u!4 &846517655 stripped
 Transform:

@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89beb3ed6dec041318f3d454ed9a4d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyword: to
 --- !u!4 &124476979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5670968480480654029, guid: c4caa3bb7996f40afa259ed3ad512380, type: 3}
@@ -229,7 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd57255b8ab040568709ee4764022a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: []
 --- !u!1 &355549376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 392774679037005161, guid: 8eb4a93d48c68432f9e1c62e926d3c96, type: 3}
@@ -247,8 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0dc7d43e16c42c0b18a55da05907d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerObject: {fileID: 0}
-  keyword: et
 --- !u!4 &355549386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 392774679037005154, guid: 8eb4a93d48c68432f9e1c62e926d3c96, type: 3}
@@ -271,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89beb3ed6dec041318f3d454ed9a4d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyword: et
 --- !u!4 &371311757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5670968480480654029, guid: c4caa3bb7996f40afa259ed3ad512380, type: 3}
@@ -294,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd57255b8ab040568709ee4764022a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: []
 --- !u!1001 &397651309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,6 +653,14 @@ PrefabInstance:
     - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
       propertyPath: Seconds
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
+      propertyPath: seconds
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
+      propertyPath: horMovement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6339790614213011181, guid: de119d8bf0ede55438daab9c29f6cdb4, type: 3}
       propertyPath: venstreOgHojre
@@ -2909,8 +2911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0dc7d43e16c42c0b18a55da05907d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerObject: {fileID: 0}
-  keyword: to
 --- !u!4 &1970818545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 392774679037005154, guid: 8eb4a93d48c68432f9e1c62e926d3c96, type: 3}

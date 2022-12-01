@@ -10061,7 +10061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1630752301
 Transform:
   m_ObjectHideFlags: 0
@@ -15448,6 +15448,7 @@ MonoBehaviour:
   health: 0
   healthLossAmount: 10
   testInteger: 0
+  testAngle: 0
 --- !u!114 &3861747975510371662
 MonoBehaviour:
   m_ObjectHideFlags: 0
