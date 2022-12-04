@@ -1,30 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Numerics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public ParticleSystem dustWalk;
-    public ParticleSystem dustSpeed;
-    public ParticleSystem dustJump;
-    public ParticleSystem sweat;
 
-
-    public Animator squashStrechAnimation;
-
-    // constants
+    // constant variables
     public string playerIdentity;
-    public GameObject otherPlayer;
-
-
     public string keyLeft, keyRight, keyJump, keyRestart;
 
     public float speed;
     public float maxSpeedBigConstant = 4.2f;
     public float maxSpeedSmallConstant = 5.8f;
-    public float maxSpeed;
+           float maxSpeed;
     public float jumpForce;
 
     public float dragAmount;
@@ -32,25 +21,25 @@ public class PlayerController : MonoBehaviour
 
     public float deceleration; // @NOTE: 1.32 seems good. don't set below 1.0 -Victor
 
+    // reference variables
+    public GameObject otherPlayer;
+           Rigidbody2D rb;
+           Rigidbody2D otherRb;
+
+    public ParticleSystem dustWalk;
+    public ParticleSystem dustSpeed;
+    public ParticleSystem dustJump;
+    public ParticleSystem sweat;
+    public Animator squashStrechAnimation;
+
     // other variables
-    Rigidbody2D rb;
-    Rigidbody2D otherRb;
-
-
     public bool jump = false;
     public bool onGround;
     public bool swinging;
+    public float distanceBetweenPlayers = 4.5f;
     public int keysYellow = 0;
     public int keysGreen  = 0;
     public int direction;
-    public int health = 100;
-    public int healthLossAmount = 10;
-
-    // debug variables
-    //public float xVelocityCheck = 0f;
-    public int testInteger = 0;
-    public float testAngle = 0.0f;
-
 
 
     void Start() {
@@ -58,7 +47,6 @@ public class PlayerController : MonoBehaviour
         rb.drag = 0.25f;
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
-      
     }
 
 
@@ -74,47 +62,50 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9)
-        {
+        // testing sweat particles
+        if (playerIdentity == "small" && distanceBetweenPlayers > 8.9f) {
             Debug.Log("Den laver sweat");
             CreateSweat();
         }
 
     }
 
+
     private void FixedUpdate() {
         direction = 0;
-        if (Input.GetKey(keyLeft)) direction = -1;
+        if (Input.GetKey(keyLeft))  direction = -1;
         if (Input.GetKey(keyRight)) direction = 1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
 
         if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
         if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
         
+        float offset = 0.0f; // @NOTE: the center of the small player is somehow wrong. this offset makes the distance calculated below correct. -Victor
+        if (playerIdentity == "big")   offset = 0.5f;
+        if (playerIdentity == "small") offset = -0.5f;
+        distanceBetweenPlayers = Vector3.Distance(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z), otherPlayer.transform.position);
+
         // swinging
-        swinging = false;
-        if ((Vector3.Distance(gameObject.transform.position, otherPlayer.transform.position) > 8.9)
-        && (onGround == false)
-        && (otherPlayer.GetComponent<PlayerController>().onGround == true)
-        && (transform.position.y < otherPlayer.transform.position.y)) {
-
+        swinging = false;        
+        if (  (distanceBetweenPlayers > 8.9f)
+           && (onGround == false)
+         //&& (otherPlayer.GetComponent<PlayerController>().onGround == true)
+           && (transform.position.y < otherPlayer.transform.position.y)
+           )  {
             swinging = true;
-            testAngle = Vector2.Angle(new Vector2(transform.position.x, transform.position.y + 10), new Vector2(otherPlayer.transform.position.x, otherPlayer.transform.position.y));
-            maxSpeed *= 1.7f;
-
-            
-
+            //maxSpeed *= 1.7f;
         }
 
-        
-
-        if (direction != 0) {
-            // movement
+        if (swinging == true) {
+            // unable to move
+        } else if (direction != 0) {
+            // move
             rb.AddForce(Vector2.right * direction * speed);
-            CreateDustWalk();
-            CreateDustSpeed();
             if (rb.velocity.x > maxSpeed)  rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             if (rb.velocity.x < -maxSpeed) rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+
+            CreateDustWalk();
+            CreateDustSpeed();
         } else {
             // deceleration
             if (swinging == false) rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
@@ -122,20 +113,16 @@ public class PlayerController : MonoBehaviour
 
         // jump
         if (jump) {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jump = false;
+            onGround = false;
 
             CreateDustWalk();
             CreateDustSpeed();
             squashStrechAnimation.SetTrigger("Jump");
-
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jump = false;
-            onGround = false;
         }
-
-        // debug
-        //xVelocityCheck = rb.velocity.x; // @DEBUG: used to monitor the speed of the player in the inspector -Victor
-
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
@@ -174,41 +161,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // pushing stone (commented out because big instead has permanent super speed)
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (playerIdentity == "big" && collision.gameObject.CompareTag("Stone"))
-        {
-            if ((collision.transform.position.x > gameObject.transform.position.x) && direction == 1)
-            {
-                speed = 350;
-            }
-            if ((collision.transform.position.x < gameObject.transform.position.x) && direction == -1)
-            {
-                speed = 350;
-            }
-        }
-    }*/
-
-
-
-    public void CreateDustWalk()
-    {
+    public void CreateDustWalk() {
         dustWalk.Play();
     }
 
-    public void CreateDustSpeed()
-    {
+    public void CreateDustSpeed() {
         dustSpeed.Play();
     }
 
-    public void CreateDustJump()
-    {
+    public void CreateDustJump() {
         dustJump.Play();
     }
 
-    public void CreateSweat()
-    {
+    public void CreateSweat() {
         sweat.Play();
     }
     
