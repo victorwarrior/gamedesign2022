@@ -34,9 +34,14 @@ public class Key : MonoBehaviour
                     break;
             }
 
-            this.spriteRenderer.enabled = false; // disable the renderer
-            if (boxCol    != null) this.boxCol.enabled    = false;
-            if (circleCol != null) this.circleCol.enabled = false;
+            if (spriteRenderer != null) spriteRenderer.enabled = false;
+            if (boxCol    != null)      boxCol.enabled         = false;
+            if (circleCol != null)      circleCol.enabled      = false;
+
+            SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; i < sprites.Length; i++) {
+                sprites[i].enabled = false;
+            }
 
             gameObject.GetComponent<AudioSource>().PlayOneShot(keySound);
 
