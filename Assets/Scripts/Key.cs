@@ -8,20 +8,20 @@ public class Key : MonoBehaviour
 
     public int keyType;
 
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCol;
-    public AudioClip keySound;
+    private SpriteRenderer   spriteRenderer;
+    private BoxCollider2D    boxCol;
+    private CircleCollider2D circleCol;
+    public AudioClip         keySound;
 
     private void Start()
     {
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
-        this.boxCol = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCol         = GetComponent<BoxCollider2D>();
+        circleCol      = GetComponent<CircleCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            Debug.Log("deactivating key.");
-
             switch (keyType) {
                 case 1:
                     other.gameObject.GetComponent<PlayerController>().keysYellow++;
@@ -29,10 +29,14 @@ public class Key : MonoBehaviour
                 case 2:
                     other.gameObject.GetComponent<PlayerController>().keysGreen++;
                     break;
+                case 3:
+                    other.gameObject.GetComponent<PlayerController>().keysBlue++;
+                    break;
             }
 
             this.spriteRenderer.enabled = false; // disable the renderer
-            this.boxCol.enabled = false;
+            if (boxCol    != null) this.boxCol.enabled    = false;
+            if (circleCol != null) this.circleCol.enabled = false;
 
             gameObject.GetComponent<AudioSource>().PlayOneShot(keySound);
 

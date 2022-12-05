@@ -10,16 +10,16 @@ public class PlayerController : MonoBehaviour
     public string playerIdentity;
     public string keyLeft, keyRight, keyJump, keyRestart;
 
-    public float speed;
-    public float maxSpeedBigConstant = 4.2f;
-    public float maxSpeedSmallConstant = 5.8f;
-           float maxSpeed;
+           float speedBigConstant      = 350.0f;
+           float speedSmallConstant    = 58.4f;
+           float maxSpeedBigConstant   = 4.2f;
+           float maxSpeedSmallConstant = 6.2f;
     public float jumpForce;
 
     public float dragAmount;
     public float dragAmountUp;
 
-    public float deceleration; // @NOTE: 1.32 seems good. don't set below 1.0 -Victor
+           float decelerationConstant  = 1.32f; // @NOTE: don't set below 1.0 -Victor
 
     // reference variables
     public GameObject otherPlayer;
@@ -33,12 +33,15 @@ public class PlayerController : MonoBehaviour
     public Animator squashStrechAnimation;
 
     // other variables
-    public bool jump = false;
+    public bool jump;
     public bool onGround;
     public bool swinging;
+           float speed;
+           float maxSpeed;
     public float distanceBetweenPlayers = 4.5f;
     public int keysYellow = 0;
     public int keysGreen  = 0;
+    public int keysBlue   = 0;
     public int direction;
 
 
@@ -47,6 +50,9 @@ public class PlayerController : MonoBehaviour
         rb.drag = 0.25f;
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
+        jump = false;
+        if (playerIdentity == "big")   speed = speedBigConstant;
+        if (playerIdentity == "small") speed = speedSmallConstant;
     }
 
 
@@ -64,8 +70,8 @@ public class PlayerController : MonoBehaviour
 
         // testing sweat particles
         if (playerIdentity == "small" && distanceBetweenPlayers > 8.9f) {
-            Debug.Log("Den laver sweat");
-            CreateSweat();
+            //Debug.Log("Den laver sweat");
+            //CreateSweat();
         }
 
     }
@@ -74,14 +80,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         direction = 0;
         if (Input.GetKey(keyLeft))  direction = -1;
-        if (Input.GetKey(keyRight)) direction = 1;
+        if (Input.GetKey(keyRight)) direction =  1;
         if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
 
         if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
         if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
         
         float offset = 0.0f; // @NOTE: the center of the small player is somehow wrong. this offset makes the distance calculated below correct. -Victor
-        if (playerIdentity == "big")   offset = 0.5f;
+        if (playerIdentity == "big")   offset =  0.5f;
         if (playerIdentity == "small") offset = -0.5f;
         distanceBetweenPlayers = Vector3.Distance(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z), otherPlayer.transform.position);
 
@@ -90,8 +96,7 @@ public class PlayerController : MonoBehaviour
         if (  (distanceBetweenPlayers > 8.9f)
            && (onGround == false)
          //&& (otherPlayer.GetComponent<PlayerController>().onGround == true)
-           && (transform.position.y < otherPlayer.transform.position.y)
-           )  {
+           && (transform.position.y < otherPlayer.transform.position.y)  ) {
             swinging = true;
             //maxSpeed *= 1.7f;
         }
@@ -108,7 +113,7 @@ public class PlayerController : MonoBehaviour
             CreateDustSpeed();
         } else {
             // deceleration
-            if (swinging == false) rb.velocity = new Vector2(rb.velocity.x / deceleration, rb.velocity.y);
+            if (swinging == false) rb.velocity = new Vector2(rb.velocity.x / decelerationConstant, rb.velocity.y);
         }
 
         // jump

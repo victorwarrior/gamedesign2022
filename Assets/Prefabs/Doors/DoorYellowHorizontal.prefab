@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 7461480261183258919}
   m_Layer: 7
   m_Name: DoorYellowHorizontal
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

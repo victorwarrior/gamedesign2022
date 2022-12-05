@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6f90547c81e5cc4e83b543201ae464a, type: 2}
+  - {fileID: 2100000, guid: 7d7536095361d784ebc6a5c0eac91289, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6f90547c81e5cc4e83b543201ae464a, type: 2}
+  - {fileID: 2100000, guid: 7d7536095361d784ebc6a5c0eac91289, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +220,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8af79927b3becb6459f57eec048df2f0, type: 2}
+  - {fileID: 2100000, guid: 91521b607beda3049b336805092c1093, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,7 +304,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6f90547c81e5cc4e83b543201ae464a, type: 2}
+  - {fileID: 2100000, guid: 7d7536095361d784ebc6a5c0eac91289, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -388,7 +388,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8af79927b3becb6459f57eec048df2f0, type: 2}
+  - {fileID: 2100000, guid: 91521b607beda3049b336805092c1093, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -472,7 +472,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8af79927b3becb6459f57eec048df2f0, type: 2}
+  - {fileID: 2100000, guid: 91521b607beda3049b336805092c1093, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -556,7 +556,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6f90547c81e5cc4e83b543201ae464a, type: 2}
+  - {fileID: 2100000, guid: 7d7536095361d784ebc6a5c0eac91289, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,7 +640,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9272f2a81fa7cb148a6f32c32ca2ee84, type: 2}
+  - {fileID: 2100000, guid: 279a183e53125794c911da5b1297c520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -728,7 +728,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9272f2a81fa7cb148a6f32c32ca2ee84, type: 2}
+  - {fileID: 2100000, guid: 279a183e53125794c911da5b1297c520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 7597774331251680744}
   - component: {fileID: 5209938250237114527}
   m_Layer: 7
-  m_Name: DoorYellowHorizontalBig
+  m_Name: DoorBlueHorizontalBig
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae5cccfde1fff341811f8d10cd6701a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: 1
+  keyType: 3
 --- !u!61 &5209938250237114527
 BoxCollider2D:
   m_ObjectHideFlags: 0

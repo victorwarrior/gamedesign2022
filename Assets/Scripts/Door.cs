@@ -20,6 +20,12 @@ public class Door : MonoBehaviour {
                         gameObject.SetActive(false);
                     }
                     break;
+                case 3:
+                    if (collision.gameObject.GetComponent<PlayerController>().keysBlue > 0) {
+                        collision.gameObject.GetComponent<PlayerController>().keysBlue--;
+                        gameObject.SetActive(false);
+                    }
+                    break;
             }
 
         } else {

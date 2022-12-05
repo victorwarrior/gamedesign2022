@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 5209938250237114527}
   m_Layer: 7
   m_Name: DoorGreenHorizontalBig
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
