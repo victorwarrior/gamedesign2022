@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dustWalk;
     public ParticleSystem dustSpeed;
     public ParticleSystem dustJump;
-    public ParticleSystem sweat;
     public Animator squashStrechAnimation;
 
     // other variables
@@ -44,6 +43,9 @@ public class PlayerController : MonoBehaviour
     public int keysBlue   = 0;
     public int direction;
 
+    Vector3 tempPos;
+    public GameObject playerMouth;
+    
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +55,10 @@ public class PlayerController : MonoBehaviour
         jump = false;
         if (playerIdentity == "big")   speed = speedBigConstant;
         if (playerIdentity == "small") speed = speedSmallConstant;
-    }
+
+        
+
+}
 
 
     void Update() {
@@ -68,10 +73,40 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        // testing sweat particles
-        if (playerIdentity == "small" && distanceBetweenPlayers > 8.9f) {
-            //Debug.Log("Den laver sweat");
-            //CreateSweat();
+        if(playerIdentity == "small")
+        {
+            if (direction == -1)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x - 0.65f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
+
+            if (direction == 1)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x - 0.3f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
+
+            if (direction == 0)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x - 0.5f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
+        }
+
+        if (playerIdentity == "big")
+        {
+            if (direction == -1)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x - 0.4f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
+
+            if (direction == 1)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x + 0.4f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
+
+            if (direction == 0)
+            {
+                playerMouth.transform.position = new Vector3(gameObject.transform.position.x + 0.1f, playerMouth.transform.position.y, playerMouth.transform.position.z);
+            }
         }
 
     }
@@ -177,9 +212,4 @@ public class PlayerController : MonoBehaviour
     public void CreateDustJump() {
         dustJump.Play();
     }
-
-    public void CreateSweat() {
-        sweat.Play();
-    }
-    
 }

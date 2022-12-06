@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1254258477
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14923,7 +14923,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1254258477
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -15216,34 +15216,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fa9b076a5c0c45947c5a4691028a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustWalk: {fileID: 1333640079}
-  dustSpeed: {fileID: 219329827}
-  dustJump: {fileID: 1254527049}
-  squashStrechAnimation: {fileID: 6119408113287911564}
   playerIdentity: small
-  otherPlayer: {fileID: 0}
   keyLeft: left
   keyRight: right
   keyJump: up
   keyRestart: enter
-  speed: 56
-  maxSpeedBigConstant: 4.2
-  maxSpeedSmallConstant: 5.8
-  maxSpeed: 5.4
   jumpForce: 28
   dragAmount: 1.2
   dragAmountUp: 24
-  deceleration: 1.32
+  otherPlayer: {fileID: 0}
+  dustWalk: {fileID: 1333640079}
+  dustSpeed: {fileID: 219329827}
+  dustJump: {fileID: 1254527049}
+  squashStrechAnimation: {fileID: 6119408113287911564}
   jump: 0
   onGround: 0
   swinging: 0
+  distanceBetweenPlayers: 4.5
   keysYellow: 0
   keysGreen: 0
+  keysBlue: 0
   direction: 0
-  health: 0
-  healthLossAmount: 10
-  testInteger: 0
-  testAngle: 0
 --- !u!61 &1911960411
 BoxCollider2D:
   m_ObjectHideFlags: 0
