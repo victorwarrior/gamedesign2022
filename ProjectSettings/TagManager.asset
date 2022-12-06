@@ -16,6 +16,7 @@ TagManager:
   - Goal
   - Key
   - Water
+  - SpecialEye
   layers:
   - Default
   - TransparentFX

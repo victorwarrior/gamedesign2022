@@ -14,11 +14,6 @@ public class EyeFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        eyeFollow();
-    }
-
-    void eyeFollow()
-    {
         Vector3 playerPos = player.transform.position;
 
         Vector2 direction = new Vector2(
