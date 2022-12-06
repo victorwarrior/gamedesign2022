@@ -643,6 +643,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 3289048714757252284, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111022147327962404, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0730ec330684650879666ec0cda496, type: 3}
 --- !u!1 &705507993
@@ -1204,7 +1212,7 @@ GameObject:
   - component: {fileID: 878846062}
   m_Layer: 10
   m_Name: RightEyeStraightAhead
-  m_TagString: SpecialEye
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2460,7 +2468,7 @@ GameObject:
   - component: {fileID: 1806073039}
   m_Layer: 10
   m_Name: LeftEyeStraightAhead
-  m_TagString: SpecialEye
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2606,6 +2614,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3790367549587566268, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848093451543745869, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.5
@@ -2678,7 +2694,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBig
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 284358269031879782, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
 --- !u!1 &1823725354 stripped
 GameObject:

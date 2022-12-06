@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     // constant variables
     public string playerIdentity;
-    public string keyLeft, keyRight, keyJump, keyRestart;
+    public string keyLeft, keyRight, keyDown, keyJump, keyRestart;
 
            float speedBigConstant      = 350.0f;
            float speedSmallConstant    = 58.4f;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public int keysGreen  = 0;
     public int keysBlue   = 0;
     public int direction;
+    public int verticalDir;
 
     Vector3 tempPos;
     public GameObject playerMouth;
@@ -113,6 +114,11 @@ public class PlayerController : MonoBehaviour
 
 
     private void FixedUpdate() {
+        //
+        verticalDir = 0;
+        if (Input.GetKey(keyJump))  verticalDir = -1;
+        if (Input.GetKey(keyDown)) verticalDir =  1;
+        if (Input.GetKey(keyJump) && Input.GetKey(keyDown)) verticalDir = 0;
         direction = 0;
         if (Input.GetKey(keyLeft))  direction = -1;
         if (Input.GetKey(keyRight)) direction =  1;
