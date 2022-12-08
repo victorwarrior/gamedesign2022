@@ -21,6 +21,7 @@ public class Key : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+
         if (other.gameObject.CompareTag("Player")) {
             switch (keyType) {
                 case 1:
@@ -33,6 +34,8 @@ public class Key : MonoBehaviour
                     other.gameObject.GetComponent<PlayerController>().keysBlue++;
                     break;
             }
+
+            other.gameObject.GetComponent<FloatingKeys>().ActivateFloatingKey(this); //aktiver keyfloat på player
 
             if (spriteRenderer != null) spriteRenderer.enabled = false;
             if (boxCol    != null)      boxCol.enabled         = false;

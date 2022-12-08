@@ -7,6 +7,9 @@ public class Door : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+
+
+
             switch (keyType) {
                 case 1:
                     if (collision.gameObject.GetComponent<PlayerController>().keysYellow > 0) {
