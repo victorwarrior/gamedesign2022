@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) {
             //other.gameObject.GetComponent<PlayerController>().LoseHealth();
-            Invoke("RestartLevel", 1f);
+            Invoke("RestartLevel", 0.7f);
 
 
             other.gameObject.GetComponent<PlayerController>().SetactiveFalse();
