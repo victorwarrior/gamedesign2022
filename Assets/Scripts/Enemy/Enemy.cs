@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) {
             //other.gameObject.GetComponent<PlayerController>().LoseHealth();
-            Invoke("RestartLevel", 1.5f);
+            Invoke("RestartLevel", 1f);
 
 
             other.gameObject.GetComponent<PlayerController>().SetactiveFalse();
@@ -22,11 +22,14 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < other.gameObject.transform.childCount; i++)
             {
                 if (other.gameObject.transform.GetChild(i).gameObject.CompareTag("Eyes")) other.gameObject.transform.GetChild(i).gameObject.SetActive(false);
+                if (other.gameObject.transform.GetChild(i).gameObject.CompareTag("DeadEye")) other.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+
             }
 
             for (int i = 0; i < other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.childCount; i++)
             {
                 if (other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("Eyes")) other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(false);
+                if (other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("DeadEye")) other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(true);
             }
 
         }

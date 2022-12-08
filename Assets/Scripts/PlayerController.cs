@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
         {
             print("deathTrigger");
             SetactiveFalse();
-            Invoke("RestartLevel",1.5f);
+            Invoke("RestartLevel",1f);
             squashStrechAnimation.SetTrigger("Death");
 
             gameObject.GetComponent<PlayerController>().SetactiveFalse();
