@@ -1762,6 +1762,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2572212652744439973, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212652744439973, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653185918837, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653185918837, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653376836584, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653376836584, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653396745265, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653396745265, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653504210683, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653504210683, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653780960147, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653780960147, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653854952005, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653854952005, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843616, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: m_Name
       value: GoalFlag
@@ -1788,7 +1844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843630, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843630, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1826,6 +1882,30 @@ PrefabInstance:
       propertyPath: confettiSound
       value: 
       objectReference: {fileID: 8300000, guid: 0d37d9b5f66e74b8f883e38d2f2c9521, type: 3}
+    - target: {fileID: 2572212654140177327, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212654140177327, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212654287844664, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212654287844664, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212654335989121, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212654335989121, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
 --- !u!1 &1828918750 stripped
