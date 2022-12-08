@@ -18,6 +18,7 @@ TagManager:
   - Water
   - SpecialEye
   - Eyes
+  - DeadEye
   layers:
   - Default
   - TransparentFX
