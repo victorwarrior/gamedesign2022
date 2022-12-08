@@ -31,7 +31,8 @@ public class EyeFollowDirection : MonoBehaviour {
             }
             if (player.GetComponent<PlayerController>().verticalDir ==  1) {
                 y = -1;
-                //if (player.GetComponent<PlayerController>().direction == 0) x = 1;
+                //if (player.GetComponent<PlayerController>().direction == 0) x = 0;
+                if (x == 0) x = 1;
             }
             if (player.GetComponent<PlayerController>().verticalDir == -1) {
                 y =  1;
