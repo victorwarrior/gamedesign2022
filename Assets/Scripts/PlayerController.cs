@@ -44,12 +44,25 @@ public class PlayerController : MonoBehaviour
     public int direction;
     public int verticalDir;
 
-    Vector3 tempPos;
-    public GameObject playerMouth;
-    
+    public BoxCollider2D boxCol;
+    public DistanceJoint2D distjoint;
+    public LineRenderer lineRend;
+     
+
+
+
+
+    //Vector3 tempPos;
+    //public GameObject playerMouth;
+
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        boxCol = GetComponent<BoxCollider2D>();
+        distjoint = GetComponent<DistanceJoint2D>();
+        lineRend = GetComponent<LineRenderer>();
+
+
         rb.drag = 0.25f;
         otherRb = otherPlayer.GetComponent<Rigidbody2D>();
         playerIdentity = playerIdentity.ToLower();
@@ -74,6 +87,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        /*
         if(playerIdentity == "small")
         {
             if (direction == -1)
@@ -109,6 +123,7 @@ public class PlayerController : MonoBehaviour
                 playerMouth.transform.position = new Vector3(gameObject.transform.position.x + 0.1f, playerMouth.transform.position.y, playerMouth.transform.position.z);
             }
         }
+        */
 
     }
 
@@ -176,7 +191,25 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("DeathTrigger"))
         {
             print("deathTrigger");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SetactiveFalse();
+            Invoke("RestartLevel",1.5f);
+            squashStrechAnimation.SetTrigger("Death");
+
+            gameObject.GetComponent<PlayerController>().SetactiveFalse();
+            gameObject.GetComponent<PlayerController>().otherPlayer.GetComponent<PlayerController>().SetactiveFalse();
+
+            gameObject.GetComponent<PlayerController>().squashStrechAnimation.SetTrigger("Death");
+            gameObject.GetComponent<PlayerController>().otherPlayer.GetComponent<PlayerController>().squashStrechAnimation.SetTrigger("Death");
+
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                if (gameObject.transform.GetChild(i).gameObject.CompareTag("Eyes")) gameObject.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < gameObject.GetComponent<PlayerController>().otherPlayer.transform.childCount; i++)
+            {
+                if (gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("Eyes")) gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
 
     }
@@ -218,4 +251,17 @@ public class PlayerController : MonoBehaviour
     public void CreateDustJump() {
         dustJump.Play();
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void SetactiveFalse()
+    {
+        distjoint.enabled = false;
+        boxCol.enabled = false;
+        lineRend.enabled = false;
+    }
+
 }

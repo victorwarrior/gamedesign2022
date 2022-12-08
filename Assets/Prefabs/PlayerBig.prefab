@@ -14928,7 +14928,7 @@ GameObject:
   - component: {fileID: 1464917963083174511}
   m_Layer: 10
   m_Name: LeftEye
-  m_TagString: Untagged
+  m_TagString: Eyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15042,7 +15042,7 @@ GameObject:
   - component: {fileID: 284358269031879782}
   m_Layer: 10
   m_Name: RightEye
-  m_TagString: Untagged
+  m_TagString: Eyes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15420,7 +15420,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.5, y: 0}
   m_AutoConfigureDistance: 0
   m_Distance: 9
   m_MaxDistanceOnly: 1
@@ -15558,7 +15558,9 @@ MonoBehaviour:
   keysBlue: 0
   direction: 0
   verticalDir: 0
-  playerMouth: {fileID: 0}
+  boxCol: {fileID: 0}
+  distjoint: {fileID: 0}
+  lineRend: {fileID: 0}
 --- !u!114 &3861747975510371662
 MonoBehaviour:
   m_ObjectHideFlags: 0
