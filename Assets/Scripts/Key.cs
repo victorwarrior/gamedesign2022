@@ -28,7 +28,6 @@ public class Key : MonoBehaviour
             switch (keyType) {
                 case 1:
                     other.gameObject.GetComponent<PlayerController>().keysYellow++;
-                    print("inc yellow key");
                     break;
                 case 2:
                     other.gameObject.GetComponent<PlayerController>().keysGreen++;
