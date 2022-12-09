@@ -20,12 +20,15 @@ public class Key : MonoBehaviour
         circleCol      = GetComponent<CircleCollider2D>();
     }
 
+    
+
     private void OnTriggerEnter2D(Collider2D other) {
 
         if (other.gameObject.CompareTag("Player")) {
             switch (keyType) {
                 case 1:
                     other.gameObject.GetComponent<PlayerController>().keysYellow++;
+                    print("inc yellow key");
                     break;
                 case 2:
                     other.gameObject.GetComponent<PlayerController>().keysGreen++;
