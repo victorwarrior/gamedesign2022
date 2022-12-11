@@ -35,7 +35,7 @@ public class DoorToLever : MonoBehaviour
 
     public void FixedUpdate()
     {
-        timerRemainingDuration = transform.position.y - minStop;
+        timerRemainingDuration = transform.position.y - minStop; //jo tættere y.pos kommer på minstop jo mindre værdi
 
         if (Lever.gameObject.GetComponent<Lever>().onButton == false && gameObject.transform.position.y > minStop)
         {
@@ -47,7 +47,6 @@ public class DoorToLever : MonoBehaviour
             timerBackground.GetComponent<Image>().enabled = false;
             uiFill.enabled = false;
         }
-        //print("duration:" + timerDuration + " remaining:" + timerRemainingDuration + " lerp:" + Mathf.InverseLerp(0, timerDuration, timerRemainingDuration));
     }
 
     [HideInInspector]
@@ -72,7 +71,7 @@ public class DoorToLever : MonoBehaviour
     {
         while (timerRemainingDuration >= 0)
         {
-            uiFill.fillAmount = Mathf.InverseLerp(0, timerDuration, timerRemainingDuration);
+            uiFill.fillAmount = Mathf.InverseLerp(0, timerDuration, timerRemainingDuration); //ændre a for at ændre hastighed på countdown.
             //a- start of range, b- end of range, value- the point within the range you want to calculate
             yield return null;
         }
