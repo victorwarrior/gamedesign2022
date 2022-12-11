@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FloatingKeys : MonoBehaviour
@@ -12,10 +13,22 @@ public class FloatingKeys : MonoBehaviour
     public GameObject keyGreen;
     public GameObject keyBlue;
 
-    //intended key positions
+    //key positions which can be moved around in editor
     public Transform Pos1;
     public Transform Pos2;
     public Transform Pos3;
+
+    //Floating effect and key target positions
+    private Transform yellowTarget;
+    private Transform greenTarget;
+    private Transform blueTarget;
+    public float floatSpeed;
+
+    //start give keys target position variations
+    //on pickup activate key in free target position
+    //on use deactivate and set new target
+    //when active do float
+
 
 
     private void Start()
@@ -24,131 +37,160 @@ public class FloatingKeys : MonoBehaviour
         keyGreen.transform.position = Pos2.position;
         keyBlue.transform.position = Pos3.position;
 
+        yellowTarget = Pos1;
+        greenTarget = Pos2;
+        blueTarget = Pos3;
+
     }
 
-    public void ActivateFloatingKey(Key key)
-    {
-        
-        //keyColor = key.GetComponentInChildren<Renderer>().material.color;
 
-        //activate right color in right position
-        switch (key.keyType)
+    private void FixedUpdate()
+    {
+
+        if (keyYellow.activeSelf == true)
         {
-            case 1:
-                print("acFloatingKeys - case 1");
-                ActRotateKeys(keyYellow, keyGreen, keyBlue);
+            Float(keyYellow, yellowTarget);
+        }
+
+        if (keyGreen.activeSelf == true)
+        {
+            Float(keyGreen, greenTarget);
+        }
+
+        if (keyBlue.activeSelf == true)
+        {
+            Float(keyBlue, blueTarget);
+        }
+
+
+    }
+
+    private void Float(GameObject key, Transform keyTarget)
+    {
+        floatSpeed = (Vector3.Distance(key.transform.position, keyTarget.position)) * 5;
+        key.transform.position = Vector3.MoveTowards(key.transform.position, keyTarget.position, floatSpeed * Time.deltaTime);
+
+    }
+
+    public void ActivateFloatingKey(int keyType) //activates key in target position
+    {
+        keyCount++;
+
+        switch (keyType)
+        {
+            case 1: //picked up yellow key
+                yellowTarget = SetTargetPosition(yellowTarget, null);
+                keyYellow.transform.position = yellowTarget.position;
                 keyYellow.SetActive(true);
                 break;
 
-            case 2:
-                ActRotateKeys(keyGreen, keyYellow, keyBlue);
+            case 2: //picked up green key
+                greenTarget = SetTargetPosition(greenTarget, null);
+                keyGreen.transform.position = greenTarget.position;
                 keyGreen.SetActive(true);
                 break;
 
-            case 3:
-                ActRotateKeys(keyBlue, keyYellow, keyGreen);
+            case 3: //picked up blue key
+                blueTarget = SetTargetPosition(blueTarget, null);
+                keyBlue.transform.position = blueTarget.position;
                 keyBlue.SetActive(true);
                 break;
+
         }
 
-        keyCount++;
     }
 
-    public void DeactivateFloatingKey(int doorType)
+    private Transform SetTargetPosition(Transform keyTarget, Transform deacKeyTarget) //decides and returns target position
     {
-        switch (doorType)
+
+        if (deacKeyTarget == null) //der er ikke blevet deaktiveret nøgle
         {
-            case 1:
-                keyYellow.SetActive(false);
-                DeacRotateKeys(keyYellow, keyGreen, keyBlue);
-                break;
-            case 2:
-                keyGreen.SetActive(false);
-                DeacRotateKeys(keyGreen, keyYellow, keyBlue);
-                break;
-            case 3:
-                keyBlue.SetActive(false);
-                DeacRotateKeys(keyBlue, keyYellow, keyGreen);
-                break;
+            switch (keyCount)
+            {
+                case 3: //der er 3 aktive nøgler, hvoraf nøglen er nummer 3
+                    keyTarget = Pos3;
+                    break;
+                case 2:
+                    keyTarget = Pos2;
+                    break;
+                case 1:
+                    keyTarget = Pos1;
+                    break;
+            }
+
+
         }
+        else if (deacKeyTarget != null) //der er blevet deaktiveret nøgle
+        {
+
+            if (deacKeyTarget == Pos1) //tjekker hvilken position der nu er ledig
+            {
+                if (keyTarget == Pos2) //rykker target en position frem
+                {
+                    keyTarget = Pos1;
+                }
+                else if (keyTarget == Pos3)
+                {
+                    keyTarget = Pos2;
+                }
+            }
+            else if (deacKeyTarget == Pos2)
+            {
+                if (keyTarget == Pos3)
+                {
+                    keyTarget = Pos2;
+                }
+                else if (keyTarget == Pos1)
+                {
+                    //no changes
+                }
+            }
+            else if (deacKeyTarget == Pos3)
+            {
+                //no changes
+            }
+
+        }
+
+        return keyTarget;
+
+    }
+
+    public void DeactivateFloatingKey(int keyType) //deactivates key and calls for new target positions
+    {
 
         keyCount--;
-  
-    }
 
-    public void DeacRotateKeys (GameObject deacKey, GameObject otherKey1, GameObject otherKey2)
-    {
-        if (deacKey.transform.position == Pos1.position)
+        switch (keyType)
         {
+            case 1: //used yellow key
 
-            if (otherKey1.transform.position == Pos2.position)
-            {
-                otherKey1.transform.position = Pos1.position;
-                otherKey2.transform.position = Pos2.position;
-            }
-            else
-            {
-                otherKey2.transform.position = Pos1.position;
-                otherKey1.transform.position = Pos2.position;
-            }
-        }
-        else if (deacKey.transform.position == Pos2.position)
-        {
-            if (otherKey1.transform.position == Pos1.position)
-            {
-                otherKey2.transform.position = Pos2.position;
-            }
-            else
-            {
-                otherKey1.transform.position = Pos2.position;
-            }
-        }
+                keyYellow.SetActive(false);
+                greenTarget = SetTargetPosition(greenTarget, yellowTarget);
+                blueTarget = SetTargetPosition(blueTarget, yellowTarget);
+                break;
 
-        deacKey.transform.position = Pos3.position;
-    }
+            case 2: //used green key
 
-    public void ActRotateKeys(GameObject actionKey, GameObject otherKey1, GameObject otherKey2)
-    {
-        //nøgler må aldrig være på samme plads.
-        //Tjek hvilken nøgle er blevet deaktiveret og send dem om i rækken
+                keyGreen.SetActive(false);
+                yellowTarget = SetTargetPosition(yellowTarget, greenTarget);
+                blueTarget = SetTargetPosition(blueTarget, yellowTarget);
+                break;
 
-        if (actionKey.activeSelf == false) //hvis vi har deactiveret key
-        {
-            if (keyCount == 2)
-            {
-                actionKey.transform.position = Pos3.position;
+            case 3: //used blue key
 
-            }
-            else if (keyCount == 1)
-            {
-
-                actionKey.transform.position = Pos2.position;
-
-                if (otherKey1.activeSelf == true)
-                {
-                    otherKey2.transform.position = Pos3.position;
-                }
-                else
-                {
-                    otherKey1.transform.position = Pos3.position;
-                }
-
-            }
-            else if (keyCount == 0)
-            {
-                actionKey.transform.position = Pos1.position;
-                otherKey1.transform.position = Pos2.position;
-                otherKey2.transform.position = Pos3.position;
-
-            }
-
-
-
+                keyBlue.SetActive(false);
+                yellowTarget = SetTargetPosition(yellowTarget, blueTarget);
+                greenTarget = SetTargetPosition(greenTarget, blueTarget);
+                break;
 
         }
 
 
     }
+
+
+
 }
 
 
