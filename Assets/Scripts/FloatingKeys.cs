@@ -67,7 +67,16 @@ public class FloatingKeys : MonoBehaviour
 
     private void Float(GameObject key, Transform keyTarget)
     {
-        floatSpeed = (Vector3.Distance(key.transform.position, keyTarget.position)) * 5;
+        if (Vector3.Distance(key.transform.position, keyTarget.position)>0.1f) //sorger for at floatspeed ikke nærmer sig 0 i det uendelige
+        {
+            floatSpeed = (Vector3.Distance(key.transform.position, keyTarget.position)) * 5;
+
+        }
+        else
+        {
+            floatSpeed = 0;
+        }
+
         key.transform.position = Vector3.MoveTowards(key.transform.position, keyTarget.position, floatSpeed * Time.deltaTime);
 
     }
