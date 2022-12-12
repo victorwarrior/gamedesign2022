@@ -2281,6 +2281,10 @@ PrefabInstance:
       value: Level10
       objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843631, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: prevScene
+      value: Level8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653880843631, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: confettiSound
       value: 
       objectReference: {fileID: 8300000, guid: 0d37d9b5f66e74b8f883e38d2f2c9521, type: 3}

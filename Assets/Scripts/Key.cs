@@ -37,7 +37,7 @@ public class Key : MonoBehaviour
                     break;
             }
 
-            other.gameObject.GetComponent<FloatingKeys>().ActivateFloatingKey(keyType); //aktiver keyfloat på player
+            //other.gameObject.GetComponent<FloatingKeys>().ActivateFloatingKey(keyType); //aktiver keyfloat på player
 
 
             if (spriteRenderer != null) spriteRenderer.enabled = false;
