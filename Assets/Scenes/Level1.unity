@@ -6527,7 +6527,7 @@ PrefabInstance:
     - target: {fileID: 8745044320273805492, guid: a507f4867d343c74999a606b84a5cb4c, type: 3}
       propertyPath: DoorSound
       value: 
-      objectReference: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+      objectReference: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a507f4867d343c74999a606b84a5cb4c, type: 3}
 --- !u!1 &980359851
@@ -7824,7 +7824,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

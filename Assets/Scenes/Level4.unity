@@ -5351,7 +5351,7 @@ PrefabInstance:
     - target: {fileID: 3010753047824090630, guid: 194bf8b8f5d0625469543999321240cd, type: 3}
       propertyPath: DoorSound
       value: 
-      objectReference: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+      objectReference: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
     - target: {fileID: 7209007717649924214, guid: 194bf8b8f5d0625469543999321240cd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5417,7 +5417,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6534,7 +6534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &712179454
 PrefabInstance:
@@ -7212,7 +7212,7 @@ PrefabInstance:
     - target: {fileID: 6596406595955616457, guid: 45608835a81eca242a837b4db7e2de3e, type: 3}
       propertyPath: DoorSound
       value: 
-      objectReference: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+      objectReference: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
     - target: {fileID: 7209007717649924214, guid: 45608835a81eca242a837b4db7e2de3e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7278,7 +7278,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e78c62381f92f4015b9f9c537eba2b2a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b41e043f8c9eb054591e3d7351913a95, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
