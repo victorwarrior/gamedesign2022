@@ -2463,9 +2463,9 @@ MonoBehaviour:
   keyYellow: {fileID: 451939322}
   keyGreen: {fileID: 1139020300}
   keyBlue: {fileID: 712179455}
-  Pos1: {fileID: 1037056479}
-  Pos2: {fileID: 660951305}
-  Pos3: {fileID: 1156741080}
+  Pos1: {fileID: 1000569036}
+  Pos2: {fileID: 39671766}
+  Pos3: {fileID: 423813886}
   floatSpeed: 3
 --- !u!1 &2043343646
 GameObject:

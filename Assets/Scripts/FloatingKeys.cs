@@ -46,6 +46,10 @@ public class FloatingKeys : MonoBehaviour
 
     private void FixedUpdate()
     {
+        keyYellow.transform.position = yellowTarget.transform.position;
+        keyGreen.transform.position = greenTarget.transform.position;
+        keyBlue.transform.position = blueTarget.transform.position;
+
 
         /*if (keyYellow.activeSelf == true)
         {
