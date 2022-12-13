@@ -17,6 +17,8 @@ public class DoorToLever : MonoBehaviour
     private float timerRemainingDuration;
     private Image uiFill;
 
+
+
     [HideInInspector]
     public void up()
     {
