@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
             {
                 if (other.gameObject.transform.GetChild(i).gameObject.CompareTag("Eyes")) other.gameObject.transform.GetChild(i).gameObject.SetActive(false);
                 if (other.gameObject.transform.GetChild(i).gameObject.CompareTag("DeadEye")) other.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+                if (other.gameObject.transform.GetChild(i).gameObject.CompareTag("Feet")) other.gameObject.transform.GetChild(i).gameObject.SetActive(false);
 
             }
 
@@ -30,6 +31,8 @@ public class Enemy : MonoBehaviour
             {
                 if (other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("Eyes")) other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(false);
                 if (other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("DeadEye")) other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(true);
+                if (other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.CompareTag("Feet")) other.gameObject.GetComponent<PlayerController>().otherPlayer.transform.GetChild(i).gameObject.SetActive(false);
+
             }
 
         }

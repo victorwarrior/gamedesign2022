@@ -262,6 +262,7 @@ public class PlayerController : MonoBehaviour
         distjoint.enabled = false;
         boxCol.enabled = false;
         lineRend.enabled = false;
+        gameObject.GetComponent<PlayerController>().enabled = false;
     }
 
 }
