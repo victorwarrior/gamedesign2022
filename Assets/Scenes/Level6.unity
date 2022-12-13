@@ -591,6 +591,10 @@ PrefabInstance:
       value: Level8
       objectReference: {fileID: 0}
     - target: {fileID: 2572212653880843631, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
+      propertyPath: prevScene
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572212653880843631, guid: a05f28531ebab4c01a9a70a2044e9854, type: 3}
       propertyPath: confettiSound
       value: 
       objectReference: {fileID: 8300000, guid: 0d37d9b5f66e74b8f883e38d2f2c9521, type: 3}
@@ -4843,7 +4847,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229506615
 GameObject:
@@ -5928,7 +5932,7 @@ Transform:
   - {fileID: 284696646}
   - {fileID: 2007197380}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1525266514
 PrefabInstance:
