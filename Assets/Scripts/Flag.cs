@@ -10,12 +10,14 @@ public class Flag : MonoBehaviour
 
     public ParticleSystem Konfeti;
 
+
     public AudioClip confettiSound;
 
     void Update() {
         if (Input.GetKeyDown("o")) NextLevel();
         if (Input.GetKeyDown("i")) PrevLevel();
     }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
