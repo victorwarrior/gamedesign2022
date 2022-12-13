@@ -5,29 +5,40 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public int keyType;
 
+    private BoxCollider2D boxCol;
+
+    public AudioClip DoorSound;
+
+
+    private void Start()
+    {
+        boxCol = GetComponent<BoxCollider2D>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+
 
             switch (keyType) {
                 case 1:
                     if (collision.gameObject.GetComponent<PlayerController>().keysYellow > 0) {
+                        RunDoor();
                         collision.gameObject.GetComponent<PlayerController>().keysYellow--;
                         collision.gameObject.GetComponent<FloatingKeys>().DeactivateFloatingKey(keyType);
-                        gameObject.SetActive(false);
                     }
                     break;
                 case 2:
                     if (collision.gameObject.GetComponent<PlayerController>().keysGreen > 0) {
+                        RunDoor();
                         collision.gameObject.GetComponent<PlayerController>().keysGreen--;
                         collision.gameObject.GetComponent<FloatingKeys>().DeactivateFloatingKey(keyType);
-                        gameObject.SetActive(false);
                     }
                     break;
                 case 3:
                     if (collision.gameObject.GetComponent<PlayerController>().keysBlue > 0) {
+                        RunDoor();
                         collision.gameObject.GetComponent<PlayerController>().keysBlue--;
                         collision.gameObject.GetComponent<FloatingKeys>().DeactivateFloatingKey(keyType);
-                        gameObject.SetActive(false);
                     }
                     break;
             }
@@ -35,6 +46,28 @@ public class Door : MonoBehaviour {
         } else {
             Debug.Log("no key");
         }
+
+        
+    }
+
+    public void sletObject()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void RunDoor()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
+
+        boxCol.enabled = false;
+
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].enabled = false;
+        }
+
+        Invoke("sletObject", 5f);
     }
 }
         
