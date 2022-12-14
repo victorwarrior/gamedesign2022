@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public int keyType;
 
-    private BoxCollider2D boxCol;
+    public BoxCollider2D boxCol;
 
     public AudioClip DoorSound;
 
@@ -13,6 +13,7 @@ public class Door : MonoBehaviour {
     private void Start()
     {
         boxCol = GetComponent<BoxCollider2D>();
+        if (boxCol == null) Debug.Log("no box col");
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -57,16 +58,14 @@ public class Door : MonoBehaviour {
 
     private void RunDoor()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
-
         boxCol.enabled = false;
-
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
         for (int i = 0; i < sprites.Length; i++)
         {
             sprites[i].enabled = false;
         }
 
+        gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
         Invoke("sletObject", 5f);
     }
 }
