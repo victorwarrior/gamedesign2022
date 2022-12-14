@@ -2488,10 +2488,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153606268, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 153606268, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229144682, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229144682, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766758027, guid: af0730ec330684650879666ec0cda496, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1941751031}
+    - target: {fileID: 923715644, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923715644, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107796486, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107796486, guid: af0730ec330684650879666ec0cda496, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1458118457, guid: af0730ec330684650879666ec0cda496, type: 3}
       propertyPath: player
       value: 
@@ -6329,6 +6361,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 133746575, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 133746575, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825239509, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 825239509, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937496070, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937496070, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1682835975, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: player
       value: 
@@ -6337,6 +6393,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 698741493}
+    - target: {fileID: 2140855192, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140855192, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3861747975510371658, guid: 7418f2eb2ea318b4abe3856aee2352bd, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.5
@@ -6437,18 +6501,6 @@ MonoBehaviour:
   Pos2: {fileID: 1476952996}
   Pos3: {fileID: 1782996140}
   floatSpeed: 3
---- !u!114 &1941751035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941751031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd57255b8ab040568709ee4764022a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1946402422
 GameObject:
   m_ObjectHideFlags: 0

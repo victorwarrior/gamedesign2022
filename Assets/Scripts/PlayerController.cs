@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     public string keyLeft, keyRight, keyDown, keyJump, keyRestart;
 
            float speedBigConstant      = 350.0f;
-           float speedSmallConstant    = 58.4f;
+           float speedSmallConstant    = 60.8f;
            float maxSpeedBigConstant   = 4.2f;
-           float maxSpeedSmallConstant = 6.2f;
+           float maxSpeedSmallConstant = 7.0f;
     public float jumpForce;
 
     public float dragAmount;
