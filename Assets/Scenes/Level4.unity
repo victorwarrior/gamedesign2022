@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6045,6 +6045,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &401661237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4799947412846179037, guid: 44f9795e117ec384f853eb7804b3755c, type: 3}
+  m_PrefabInstance: {fileID: 1390935658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &451939321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6163,6 +6168,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4799947412846179037, guid: 44f9795e117ec384f853eb7804b3755c, type: 3}
   m_PrefabInstance: {fileID: 451939321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &574328400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4799947412846179037, guid: 44f9795e117ec384f853eb7804b3755c, type: 3}
+  m_PrefabInstance: {fileID: 700580029}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &628423860
 GameObject:
@@ -7973,6 +7983,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d1f77ead6913544c91a54e2cdbabfd2, type: 3}
+--- !u!1 &1793300948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4799947412846179037, guid: 44f9795e117ec384f853eb7804b3755c, type: 3}
+  m_PrefabInstance: {fileID: 303112882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1847658788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8138,9 +8153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCount: 0
-  keyYellow: {fileID: 451939322}
-  keyGreen: {fileID: 1139020300}
-  keyBlue: {fileID: 712179455}
+  keyYellow: {fileID: 401661237}
+  keyGreen: {fileID: 574328400}
+  keyBlue: {fileID: 1793300948}
   Pos1: {fileID: 2082858204}
   Pos2: {fileID: 1380528272}
   Pos3: {fileID: 1069961716}
