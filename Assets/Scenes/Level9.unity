@@ -964,7 +964,7 @@ MonoBehaviour:
   Door: {fileID: 45960860}
   onButton: 0
   objectsOnButton: 0
-  DoorSound: {fileID: 8300000, guid: 464b611ce4bd74a699b5ef03e8d8bbcf, type: 3}
+  DoorSound: {fileID: 8300000, guid: d4ef553c2128f6b479d0f10b961cc33d, type: 3}
 --- !u!61 &290590684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 464b611ce4bd74a699b5ef03e8d8bbcf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d4ef553c2128f6b479d0f10b961cc33d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
