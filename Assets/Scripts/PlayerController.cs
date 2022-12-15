@@ -44,12 +44,11 @@ public class PlayerController : MonoBehaviour
     public int direction;
     public int verticalDir;
 
-    public BoxCollider2D boxCol;
-    public DistanceJoint2D distjoint;
-    public LineRenderer lineRend;
-     
+    private BoxCollider2D boxCol;
+    private DistanceJoint2D distjoint;
+    private LineRenderer lineRend;
 
-
+    public AudioClip JumpSound;
 
 
     //Vector3 tempPos;
@@ -175,6 +174,7 @@ public class PlayerController : MonoBehaviour
         // jump
         if (jump) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            gameObject.GetComponent<AudioSource>().PlayOneShot(JumpSound);
             jump = false;
             onGround = false;
 
