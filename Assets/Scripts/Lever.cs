@@ -6,26 +6,55 @@ public class Lever : MonoBehaviour
 {
     public GameObject Door;
     public bool onButton = false;
-
+    public int objectsOnButton = 0;
     public AudioClip DoorSound;
+    private bool numberCanPlaySound = false;
 
+
+    private void Update()
+    {
+
+        if (objectsOnButton == 0)
+        {
+            numberCanPlaySound = false;
+        }
+
+        if (objectsOnButton == 2)
+        {
+            numberCanPlaySound = true;
+        }
+
+
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player")||other.gameObject.CompareTag("Stone"))
+
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Stone"))
         {
             Door.gameObject.GetComponent<DoorToLever>().stopUp();
-            onButton = true;     
+
+            if (onButton == false && objectsOnButton == 1 && numberCanPlaySound == false)
+            {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
+
+            }
+
+            onButton = true;
+
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (onButton == true)
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stone"))
         {
-            gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
+            objectsOnButton++;
         }
+
     }
+
 
 
 
@@ -35,6 +64,7 @@ public class Lever : MonoBehaviour
         {
             Door.gameObject.GetComponent<DoorToLever>().down();
             onButton = false;
+            objectsOnButton--;
 
 
             if (onButton == false)
