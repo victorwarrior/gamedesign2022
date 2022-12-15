@@ -15,20 +15,23 @@ public class Lever : MonoBehaviour
         if (other.gameObject.CompareTag("Player")||other.gameObject.CompareTag("Stone"))
         {
             Door.gameObject.GetComponent<DoorToLever>().stopUp();
-            onButton = true;
-
-            if(onButton == true)
-            {
-                gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
-            }
+            onButton = true;     
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (onButton == true)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
+        }
+    }
+
 
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Stone"))
         {
             Door.gameObject.GetComponent<DoorToLever>().down();
             onButton = false;
