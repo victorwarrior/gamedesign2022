@@ -46,12 +46,12 @@ public class FloatingKeys : MonoBehaviour
 
     private void FixedUpdate()
     {
-        keyYellow.transform.position = yellowTarget.transform.position;
-        keyGreen.transform.position = greenTarget.transform.position;
-        keyBlue.transform.position = blueTarget.transform.position;
+        //keyYellow.transform.position = yellowTarget.transform.position;
+        //keyGreen.transform.position = greenTarget.transform.position;
+        //keyBlue.transform.position = blueTarget.transform.position;
 
 
-        /*if (keyYellow.activeSelf == true)
+        if (keyYellow.activeSelf == true)
         {
             Float(keyYellow, yellowTarget);
         }
@@ -64,12 +64,12 @@ public class FloatingKeys : MonoBehaviour
         if (keyBlue.activeSelf == true)
         {
             Float(keyBlue, blueTarget);
-        }*/
+        }
 
 
     }
 
-    /*private void Float(GameObject key, Transform keyTarget)
+    private void Float(GameObject key, Transform keyTarget)
     {
         if (Vector3.Distance(key.transform.position, keyTarget.position)>0.1f) //sorger for at floatspeed ikke nærmer sig 0 i det uendelige
         {
@@ -83,7 +83,7 @@ public class FloatingKeys : MonoBehaviour
 
         key.transform.position = Vector3.MoveTowards(key.transform.position, keyTarget.position, floatSpeed * Time.deltaTime);
 
-    }*/
+    }
 
     public void ActivateFloatingKey(int keyType) //activates key in target position
     {
