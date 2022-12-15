@@ -14,9 +14,13 @@ public class Lever : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")||other.gameObject.CompareTag("Stone"))
         {
-            gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
             Door.gameObject.GetComponent<DoorToLever>().stopUp();
             onButton = true;
+
+            if(onButton == true)
+            {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(DoorSound);
+            }
         }
     }
     
@@ -28,6 +32,13 @@ public class Lever : MonoBehaviour
         {
             Door.gameObject.GetComponent<DoorToLever>().down();
             onButton = false;
+
+
+            if (onButton == false)
+            {
+                gameObject.GetComponent<AudioSource>().Stop();
+            }
+
         }
     }
 

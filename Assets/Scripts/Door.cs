@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public int keyType;
 
-    public BoxCollider2D boxCol;
+    private BoxCollider2D boxCol;
 
     public AudioClip DoorSound;
 
