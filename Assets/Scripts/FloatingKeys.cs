@@ -58,6 +58,7 @@ public class FloatingKeys : MonoBehaviour
 
         if (keyGreen.activeSelf == true)
         {
+            print("keygreen if");
             Float(keyGreen, greenTarget);
         }
 
@@ -71,6 +72,7 @@ public class FloatingKeys : MonoBehaviour
 
     private void Float(GameObject key, Transform keyTarget)
     {
+        print("key green float");
         if (Vector3.Distance(key.transform.position, keyTarget.position)>0.1f) //sorger for at floatspeed ikke nærmer sig 0 i det uendelige
         {
             floatSpeed = (Vector3.Distance(key.transform.position, keyTarget.position)) * 5;
