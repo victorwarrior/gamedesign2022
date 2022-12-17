@@ -130,13 +130,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         //
         verticalDir = 0;
-        if (Input.GetKey(keyJump))  verticalDir = -1;
-        if (Input.GetKey(keyDown)) verticalDir =  1;
-        if (Input.GetKey(keyJump) && Input.GetKey(keyDown)) verticalDir = 0;
+        if (Input.GetKey(keyJump)) verticalDir += -1;
+        if (Input.GetKey(keyDown)) verticalDir +=  1;
         direction = 0;
-        if (Input.GetKey(keyLeft))  direction = -1;
-        if (Input.GetKey(keyRight)) direction =  1;
-        if (Input.GetKey(keyLeft) && Input.GetKey(keyRight)) direction = 0;
+        if (Input.GetKey(keyLeft))  direction += -1;
+        if (Input.GetKey(keyRight)) direction +=  1;
 
         if (playerIdentity == "big")   maxSpeed = maxSpeedBigConstant;
         if (playerIdentity == "small") maxSpeed = maxSpeedSmallConstant;
